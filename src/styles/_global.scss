@@ -1,0 +1,42 @@
+@import "@/styles/vars";
+@import "@/styles/templates";
+@import "@/styles/mixins";
+
+// Global variables of the app
+:root {
+  color-scheme: dark;
+
+  --color-global-bg: #292929;
+
+  --color-header: #181818;
+
+  --color-footer: #181818;
+
+  --color-text: #ffffff;
+
+  --color-link-active: #ffec8b;
+
+  --color-hero-replic: #ffffdd;
+
+  --color-remtouk-theme: #ffcbdb;
+  --color-sadness-theme: #75599c;
+}
+
+// Class for dark theme colors
+.light-theme {
+  color-scheme: light;
+
+  // TODO: in future
+}
+
+// Global container of whole page
+.global-container {
+  position: relative;
+  min-height: 100vh;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-global-bg);
+}
