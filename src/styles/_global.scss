@@ -12,14 +12,23 @@
 
   --color-footer: #181818;
 
-  --color-text: #ffffff;
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
 
   --color-link-active: #ffec8b;
 
-  --color-hero-replic: #ffffdd;
+  --color-alpha: #ffdddd;
+  --color-alpha-rgb: 255, 221, 221;
+  --color-beta: #ddddff;
+  --color-beta-rgb: 221, 221, 255;
+  --color-gamma: #ddffdd;
+  --color-gamma-rgb: 221, 255, 221;
+  --color-delta: #ffffdd;
+  --color-delta-rgb: 255, 255, 221;
+  --color-epsilon: #ffddff;
+  --color-epsilon-rgb: 255, 221, 255;
 
-  --color-remtouk-theme: #ffcbdb;
-  --color-sadness-theme: #75599c;
+  --color-hero-replic: #ffffdd;
 }
 
 // Class for dark theme colors

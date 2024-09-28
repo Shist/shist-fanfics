@@ -1,260 +1,146 @@
 <template>
   <main class="main-page">
-    <h2 class="main-page__fanfic-headline">Поле Аттракторов: α (альфа)</h2>
-    <h2 class="main-page__fanfic-headline">Дата: 30.10.2022</h2>
-    <h2 class="main-page__fanfic-headline main-page__fanfic-headline_title">
-      «Точка отсчёта»
-    </h2>
-    <p class="main-page__fanfic-paragraph">
-      Холодным осенним днём посреди парка виднелось большое дерево. Его листья
-      были совсем высохшими, словно утратившими почти всю свою жизненную силу.
-      На улице было уже достаточно холодно. Казалось, ещё немного и на улицах
-      Минска предстоит увидеть первые снежинки за эту осень. Многие деревья уже
-      полностью потеряли в себе силы удерживать листочки, но это дерево не было
-      одним из них, продолжая идти против воли природы. Сложно сказать, что на
-      уме у этого дерева, а также, что оно чувствует, когда очередной листок
-      отрывается от него и улетает по своему пути.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Очередной листок упал с дерева, по его внешнему виду можно смело судить,
-      что он уже провисел своё и что задерживаться ему больше не к чему. Ветер в
-      тот день был силён. Листок улетел от своего родителя настолько далеко, что
-      его уже невозможно было увидеть из изначальной точки. Вскоре, он упал на
-      асфальт, и на него с хрустом наступила какая-то девочка. Девочка была не
-      очень высокой, около ста шестидесяти сантиметров, тощего телосложения, со
-      слегка потрёпанными русыми волосами, длиною примерно до талии. На её
-      миленькой светлых тонов одежде также красовался пушистый белый шарфик.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_tifk">Тифк:</span>
-      «Какой необычный листок, как он только мог долететь сюда. Вокруг же нет
-      деревьев».
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Девочка с безразличием осматривала разломанный листочек. Хотя, надо
-      признать, в её безразличном взгляде была нотка любопытства.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      На тот момент девочка возвращалась с уроков домой. Она была
-      старшеклассницей, хотя по виду может показаться, что она ещё ходит в
-      среднюю школу. Тем не менее, в остроте взгляда этой девочки можно было
-      увидеть взрослые оттенки. На её рюкзачке можно было разглядеть различные
-      брелоки и значки с изображением популярных на то время аниме девочек. От
-      девочки так и веяло кавайностью~ (kawai – от яп. «мило»). Звать эту
-      девочку Тифк. По крайней мере, это одно из её имён.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Обычно путь Тифк до дома проходил через парк, по которому также
-      простиралась небольшая речка. Это было достаточно красивое место. Иногда
-      здесь можно было встретить парочки, гуляющие вместе, или группы туристов,
-      делающих совместные фотографии.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Но в тот день в парке не было людей. Вероятно, это было связано с не самой
-      тёплой и в то же время облачной, а также слегка мрачной погодой.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Тифк, как и всегда, шла по своему пути не останавливаясь, несмотря на всю
-      красоту парка. Однако её взгляд приковала высокая и тёмная фигура, стоящая
-      на одном из мостов через речку. Это была достаточно загадочная девушка,
-      одетая в тёмные тона одежды, несколько тощая, как и Тифк, но при этом явно
-      повыше. На ней также красовались почти что непрозрачные тёмные колготки и
-      башмачки, которые так и изумляли своей элегантностью. Взгляд девочки был
-      устремлён в небо. За локоном её длинных и слегка потрёпанных волос не было
-      видно этого взгляда; лишь губы, что сомкнулись в несколько грустном
-      выражении. Вокруг этой девушки витала загадочная, несколько тёмная и
-      мрачная, но в то же время тёплая атмосфера.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Шаги Тифк стали замедляться и, сама того не заметив, она полностью
-      остановилась, оставшись прикованной взглядом к девушке, одетой в тёмную
-      одежду. Её взгляд был охвачен любопытством настолько сильно, что она на
-      какой-то момент даже перестала слышать окружающие её звуки. Это
-      продолжалось около нескольких минут.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_tifk">Тифк:</span>
-      «Почему эта девушка просто смотрит в небо…? Должна ли я узнать, всё ли у
-      неё в порядке…? Зачем стоять в парке в такой день и пялиться в небо?»
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Тифк колебалась, стоит ли ей подойти к той загадочной девушке, но лень и
-      желание вернуться домой пересилило любопытство, поэтому Тифк продолжила
-      шагать дальше к своему дому. И хотя она не оборачивалась, но во взгляде её
-      прослеживалось любопытство и даже некоторый испуг.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Как только Тифк подумала, что вот-вот покинет территорию парка, она
-      услышала голос. Этот голос был очень необычен. С одной стороны, было
-      очевидно, что он не принадлежит ребёнку, но в то же время он обладал
-      необыкновенной теплотой, нежностью и в какой-то мере даже элегантностью.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_sadness">
-        Сэднесс:
-      </span>
-      «Прошу прощения. Это не ваша вещь?»
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Тифк с изумлением обернулась, и перед её глазами предстала высокая тёмная
-      фигура девушки, которую Тифк видела на мосту в парке. И хотя Тифк ещё не
-      знала, но эта девушка была известна под псевдонимом «Сэднесс». На самом
-      деле, это не единственный её псевдоним, но пока остановимся на этом.
-      Вблизи Тифк могла разглядеть различные тёмные заколочки на волосах
-      Сэднесс. На её слегка бледном, но в то же время красивом и элегантном
-      личике можно было наблюдать круглые, едва заметные очёчки, прикрывающие
-      большие, полные раздумий глаза, по бокам от которых красовались тёмные и
-      элегантно нарисованные стрелки. От Сэднесс также исходил приятный,
-      несколько напоминающий сирень запах, ещё больше погружающий в её
-      загадочную энергетику. В её длинных, но в то же время бледных и тонких
-      ладошках красовался белый пушистый шарфик.
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Тифк молниеносно преподнесла свою ладошку к шее, и тут её глаза
-      наполнились внушающим удивлением и любопытством. Её взгляд был устремлён
-      куда-то сквозь Сэднесс, как будто она смотрела куда-то вне нашего мира.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_tifk">Тифк:</span>
-      «Извините, это действительно мой шарфик. Наверное, его сдуло ветром, пока
-      я…»
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Цитата Тифк резко прервалась, её глаза наполнились безысходностью. В то же
-      время во взгляде Сэднесс заиграло любопытство. Она плавно наклонила голову
-      слегка набок и вопросительно посмотрела на Тифк. Её нежные губы в этот
-      момент слегка приоткрылись, как будто пытаясь понять, что не так.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_tifk">Тифк:</span>
-      «В общем, не важно. Спасибо, что подобрала мой шарфик».
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Тифк слегка наклонила голову и посмотрела в сторону. В то же время Сэднесс
-      плавно вручила ей утерянный шарфик из рук в руки. В этот момент руки двух
-      девочек слегка соприкоснулись. Невероятной силы нежность поразила обеих
-      настолько, что на какой-то миг они встретились взглядами, полными
-      любопытства и некоторого изумления. После этого момента Тифк осознала, что
-      обратилась к Сэднесс на «ты», и сразу же отчитала себя.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_tifk">Тифк:</span>
-      «Извините, я…»
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_sadness">
-        Сэднесс:
-      </span>
-      «Ничего страшно, можно на ‘ты’. Меня Диана зовут, а тебя?»
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_tifk">Тифк:</span>
-      «Тифк… Зови меня Тифк…»
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_sadness">
-        Сэднесс:
-      </span>
-      «Приятно познакомиться, Тифк».
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Личико Сэднесс растянулось в элегантной улыбке, а её щечки стали слегка
-      покрасневшими. Она всё ещё продолжала рассматривать Тифк с головы до ног,
-      как бы запоминая её.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_tifk">Тифк:</span>
-      «Я тороплюсь домой, нужно ещё столько дел сделать. Я, если что, почти
-      каждый день прохожу мимо этого парка. Я думаю, мы ещё не раз встретимся».
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      На личике Сэднесс появились элементы любопытства, а также некоторые нотки
-      грусти.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_sadness">
-        Сэднесс:
-      </span>
-      «Ладно, Тифк. Хорошей тебе дороги. И не теряй больше свой шарфик!»
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Тифк уже отдалилась от Сэднесс на несколько метров, но радостно махала
-      ручкой на прощание. На её лице была видна улыбка с небольшим румянцем на
-      щеках.
-    </p>
-    <p class="main-page__fanfic-paragraph main-page__fanfic-paragraph_replic">
-      <span class="main-page__hero-name main-page__hero-name_sadness">
-        Сэднесс:
-      </span>
-      «Эта девочка… Тифк… Кто она…?»
-    </p>
-    <p class="main-page__fanfic-paragraph">
-      Сэднесс медленно опустила руку, которой передавала милый белый шарфик
-      Тифк, после чего устремила свой взгляд в небо. В этот момент раскатился
-      гром, а на улицы Минска медленно начал капать дождь, постепенно
-      перерастающий в грозу.
-    </p>
+    <div class="attractor-field-section attractor-field-section_alpha">
+      <h2 class="attractor-field-section__headline">Alpha (α)</h2>
+      <div class="attractor-field-section__fanfics-cards-wrapper">
+        <div
+          class="attractor-field-section__fanfic-card attractor-field-section__fanfic-card_alpha"
+          @click="onFanficCardClicked('alpha-1')"
+        >
+          30.10.2022 - «Точка отсчёта»
+        </div>
+      </div>
+    </div>
+    <div class="attractor-field-section attractor-field-section_beta">
+      <h2 class="attractor-field-section__headline">Beta (β)</h2>
+      <div class="attractor-field-section__fanfics-cards-wrapper">
+        <span class="attractor-field-section__nothing-yet-label">
+          Пока неизвестно ни одной истории...
+        </span>
+      </div>
+    </div>
+    <div class="attractor-field-section attractor-field-section_gamma">
+      <h2 class="attractor-field-section__headline">Gamma (γ)</h2>
+      <div class="attractor-field-section__fanfics-cards-wrapper">
+        <span class="attractor-field-section__nothing-yet-label">
+          Пока неизвестно ни одной истории...
+        </span>
+      </div>
+    </div>
+    <div class="attractor-field-section attractor-field-section_delta">
+      <h2 class="attractor-field-section__headline">Delta (δ)</h2>
+      <div class="attractor-field-section__fanfics-cards-wrapper">
+        <div
+          class="attractor-field-section__fanfic-card attractor-field-section__fanfic-card_delta"
+          @click="onFanficCardClicked('delta-1')"
+        >
+          02.04.2042 - «Те, кого я не cмог сохранить»
+        </div>
+      </div>
+    </div>
+    <div class="attractor-field-section attractor-field-section_epsilon">
+      <h2 class="attractor-field-section__headline">Epsilon (ε)</h2>
+      <div class="attractor-field-section__fanfics-cards-wrapper">
+        <span class="attractor-field-section__nothing-yet-label">
+          Пока неизвестно ни одной истории...
+        </span>
+      </div>
+    </div>
   </main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+function onFanficCardClicked(fanficId: string) {
+  router.push(`fanfics/${fanficId}`);
+}
+</script>
 
 <style lang="scss" scoped>
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .main-page {
   flex-grow: 1;
   @extend %default-wrapper;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 3s ease-in-out 0s 1 normal;
-  &__fanfic-headline {
-    @include default-headline(28px, 28px, var(--color-text));
-    &_title {
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 36px;
-      line-height: 36px;
-    }
+  row-gap: 20px;
+}
+
+.attractor-field-section {
+  padding: 20px;
+  border-radius: 5px;
+  @media (max-width: $phone-l) {
+    padding: 10px;
+  }
+  &_alpha {
+    background-color: rgba(var(--color-alpha-rgb), 90%);
+  }
+  &_beta {
+    background-color: rgba(var(--color-beta-rgb), 90%);
+  }
+  &_gamma {
+    background-color: rgba(var(--color-gamma-rgb), 90%);
+  }
+  &_delta {
+    background-color: rgba(var(--color-delta-rgb), 90%);
+  }
+  &_epsilon {
+    background-color: rgba(var(--color-epsilon-rgb), 90%);
+  }
+  &__headline {
+    @include default-headline(36px, 36px, var(--color-text-dark));
+    margin-bottom: 20px;
     @media (max-width: $phone-l) {
       font-size: 24px;
       line-height: 24px;
-      &_title {
-        font-size: 28px;
-        line-height: 28px;
-      }
     }
   }
-  &__fanfic-paragraph {
-    @include default-text(24px, 32px, var(--color-text));
-    text-indent: 60px;
+  &__fanfics-cards-wrapper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
     @media (max-width: $phone-l) {
-      font-size: 16px;
-      line-height: 24px;
-      text-indent: 30px;
+      padding: 5px;
     }
-    &_replic {
-      font-style: italic;
-      text-indent: 20px;
-      color: var(--color-hero-replic);
+    .attractor-field-section__nothing-yet-label {
+      @include default-text(24px, 24px, var(--color-text-dark));
       @media (max-width: $phone-l) {
-        text-indent: 10px;
+        font-size: 14px;
+        line-height: 14px;
       }
-      .main-page__hero-name {
-        font-style: normal;
-        &_tifk {
-          color: var(--color-remtouk-theme);
-        }
-        &_sadness {
-          color: var(--color-sadness-theme);
-        }
+    }
+    .attractor-field-section__fanfic-card {
+      @include default-text(28px, 28px, var(--color-text-dark));
+      padding: 10px;
+      border-radius: 10px;
+      border: 3px var(--color-text-dark) solid;
+      cursor: pointer;
+      transition: 0.3s;
+      @media (max-width: $phone-l) {
+        font-size: 16px;
+        line-height: 16px;
+      }
+      &:hover {
+        transform: scale(1.05);
+      }
+      &_alpha {
+        background-color: var(--color-alpha);
+      }
+      &_beta {
+        background-color: var(--color-beta);
+      }
+      &_gamma {
+        background-color: var(--color-gamma);
+      }
+      &_delta {
+        background-color: var(--color-delta);
+      }
+      &_epsilon {
+        background-color: var(--color-epsilon);
       }
     }
   }

@@ -2,7 +2,11 @@
   <div class="global-container">
     <header class="app-header">
       <div class="app-header__container">
-        <h1 class="app-header__headline">Shist fanfics</h1>
+        <h1 class="app-header__headline">
+          <router-link to="/" class="app-header__headline-link">
+            Shist fanfics
+          </router-link>
+        </h1>
       </div>
     </header>
     <router-view />
@@ -41,14 +45,18 @@
       padding-inline: 20px;
     }
     .app-header__headline {
-      @include default-headline(45px, 45px, var(--color-text));
-      @media (max-width: $tablet-l) {
-        font-size: 30px;
-        line-height: 30px;
-      }
-      @media (max-width: $phone-l) {
-        font-size: 18px;
-        line-height: 18px;
+      padding: 5px;
+      .app-header__headline-link {
+        @include default-headline(45px, 45px, var(--color-text-light));
+        text-decoration: none;
+        @media (max-width: $tablet-l) {
+          font-size: 30px;
+          line-height: 30px;
+        }
+        @media (max-width: $phone-l) {
+          font-size: 18px;
+          line-height: 18px;
+        }
       }
     }
   }
@@ -83,7 +91,7 @@
         }
         .app-footer__git-text {
           transition: 0.3s;
-          @include default-text(20px, 20px, var(--color-text));
+          @include default-text(20px, 20px, var(--color-text-light));
           @media (max-width: $laptop-s) {
             font-size: 16px;
             line-height: 16px;

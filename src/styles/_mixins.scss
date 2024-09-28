@@ -2,7 +2,6 @@
 
 // Default settings of headlines, you only need to choose font size, line height and text color
 @mixin default-headline($font-size, $line-height, $text-color) {
-  padding: 8px;
   font-family: $font-roboto;
   font-weight: 700;
   font-size: $font-size;
@@ -12,7 +11,6 @@
 
 // Default settings of paragraphs and spans, you only need to choose font size, line height and text color
 @mixin default-text($font-size, $line-height, $text-color) {
-  padding: 4px;
   font-family: $font-roboto;
   font-weight: 400;
   font-size: $font-size;
