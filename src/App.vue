@@ -1,6 +1,6 @@
 <template>
   <div class="global-container">
-    <header class="app-header">
+    <header class="app-header" ref="headerRef">
       <div class="app-header__container">
         <h1 class="app-header__headline">
           <router-link to="/" class="app-header__headline-link">
@@ -12,6 +12,7 @@
     <router-view />
     <footer class="app-footer">
       <div class="app-footer__container">
+        <span class="app-footer__version">Version 1.2.0</span>
         <div class="app-footer__git-link-wrapper">
           <a
             href="https://github.com/Shist/shist-fanfics"
@@ -31,11 +32,44 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+
+const headerRef = ref<HTMLElement | null>(null);
+
+const handleHeaderScroll = () => {
+  if (!headerRef.value) {
+    return;
+  }
+
+  if (window.scrollY > 0) {
+    headerRef.value.classList.add("app-header_scrolled");
+  } else {
+    headerRef.value.classList.remove("app-header_scrolled");
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleHeaderScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleHeaderScroll);
+});
+</script>
 
 <style lang="scss">
 .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  --header-opacity: 1;
+  opacity: var(--header-opacity);
   background-color: var(--color-header);
+  &_scrolled {
+    --header-opacity: 0.9;
+  }
   &__container {
     padding: 20px 40px;
     display: flex;
@@ -66,8 +100,15 @@
   background-color: var(--color-footer);
   &__container {
     padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
     @media (max-width: $laptop-l) {
       padding-inline: 20px;
+    }
+    .app-footer__version {
+      @include default-text(16px, 16px, var(--color-text-light));
     }
     .app-footer__git-link-wrapper {
       max-width: 280px;

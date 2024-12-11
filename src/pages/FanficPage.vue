@@ -31,12 +31,14 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import type { IFanfic } from "@/types/fanfic";
 import fanficMapAlpha1 from "@/data/fanfic-alpha-1.json";
+import fanficMapAlpha2 from "@/data/fanfic-alpha-2.json";
 import fanficMapDelta1 from "@/data/fanfic-delta-1.json";
 
 const route = useRoute();
 
 const fanficsDB: { [key: string]: IFanfic } = {
   "alpha-1": fanficMapAlpha1,
+  "alpha-2": fanficMapAlpha2,
   "delta-1": fanficMapDelta1,
 };
 
@@ -71,11 +73,11 @@ const fanficMap = computed(
       line-height: 36px;
     }
     @media (max-width: $phone-l) {
-      font-size: 24px;
-      line-height: 24px;
+      font-size: 20px;
+      line-height: 20px;
       &_title {
-        font-size: 28px;
-        line-height: 28px;
+        font-size: 22px;
+        line-height: 22px;
       }
     }
   }

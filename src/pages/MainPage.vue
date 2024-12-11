@@ -9,6 +9,12 @@
         >
           30.10.2022 - «Точка отсчёта»
         </div>
+        <div
+          class="attractor-field-section__fanfic-card attractor-field-section__fanfic-card_alpha"
+          @click="onFanficCardClicked('alpha-2')"
+        >
+          09.02.2023 - «Криосинхронизация»
+        </div>
       </div>
     </div>
     <div class="attractor-field-section attractor-field-section_beta">
