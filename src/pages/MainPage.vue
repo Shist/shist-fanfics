@@ -75,36 +75,37 @@ function onFanficCardClicked(fanficId: string) {
 }
 
 .attractor-field-section {
-  padding: 20px;
+  padding: 15px;
   border-radius: 5px;
   @media (max-width: $phone-l) {
     padding: 10px;
   }
   &_alpha {
-    background-color: rgba(var(--color-alpha-rgb), 90%);
+    background-color: rgba(var(--color-alpha-rgb), 85%);
   }
   &_beta {
-    background-color: rgba(var(--color-beta-rgb), 90%);
+    background-color: rgba(var(--color-beta-rgb), 85%);
   }
   &_gamma {
-    background-color: rgba(var(--color-gamma-rgb), 90%);
+    background-color: rgba(var(--color-gamma-rgb), 85%);
   }
   &_delta {
-    background-color: rgba(var(--color-delta-rgb), 90%);
+    background-color: rgba(var(--color-delta-rgb), 85%);
   }
   &_epsilon {
-    background-color: rgba(var(--color-epsilon-rgb), 90%);
+    background-color: rgba(var(--color-epsilon-rgb), 85%);
   }
   &__headline {
     @include default-headline(36px, 36px, var(--color-text-dark));
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     @media (max-width: $phone-l) {
+      margin-bottom: 10px;
       font-size: 24px;
       line-height: 24px;
     }
   }
   &__fanfics-cards-wrapper {
-    padding: 10px;
+    padding: 7px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -120,18 +121,40 @@ function onFanficCardClicked(fanficId: string) {
       }
     }
     .attractor-field-section__fanfic-card {
+      position: relative;
       @include default-text(28px, 28px, var(--color-text-dark));
-      padding: 10px;
+      padding: 15px;
       border-radius: 10px;
       border: 3px var(--color-text-dark) solid;
       cursor: pointer;
       transition: 0.3s;
+      &:hover {
+        box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background: linear-gradient(
+          175deg,
+          rgba(255, 255, 255, 0.4) 0,
+          rgba(255, 255, 255, 0) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
       @media (max-width: $phone-l) {
+        padding: 10px;
         font-size: 16px;
         line-height: 16px;
-      }
-      &:hover {
-        transform: scale(1.05);
       }
       &_alpha {
         background-color: var(--color-alpha);

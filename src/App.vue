@@ -12,7 +12,7 @@
     <router-view />
     <footer class="app-footer">
       <div class="app-footer__container">
-        <span class="app-footer__version">Version 1.2.0</span>
+        <span class="app-footer__version">Version 1.3.0</span>
         <div class="app-footer__git-link-wrapper">
           <a
             href="https://github.com/Shist/shist-fanfics"
