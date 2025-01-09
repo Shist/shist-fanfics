@@ -24,7 +24,8 @@
     @include default-text(36px, 36px, var(--color-text));
     transition: 0.3s;
     &:hover {
-      transform: scale(1.05);
+      scale: 1.05;
+      color: var(--color-link-active);
     }
   }
 }

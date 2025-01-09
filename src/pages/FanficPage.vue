@@ -1,6 +1,7 @@
 <template>
   <main class="fanfic-page">
-    <h2 class="fanfic-page__headline">
+    <h2 class="fanfic-page__headline">⚙ This page is in work for now ⚙</h2>
+    <!-- <h2 class="fanfic-page__headline">
       Поле Аттракторов: {{ fanficMap.attractorField }}
     </h2>
     <h2 class="fanfic-page__headline">Дата: {{ fanficMap.date }}</h2>
@@ -22,29 +23,25 @@
           {{ fanficPart[2] }}
         </p>
       </template>
-    </div>
+    </div> -->
   </main>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-import type { IFanfic } from "@/types/fanfic";
-import fanficMapAlpha1 from "@/data/fanfic-alpha-1.json";
-import fanficMapAlpha2 from "@/data/fanfic-alpha-2.json";
-import fanficMapDelta1 from "@/data/fanfic-delta-1.json";
+// import { computed } from "vue";
+// import { useRoute } from "vue-router";
 
-const route = useRoute();
+// const route = useRoute();
 
-const fanficsDB: { [key: string]: IFanfic } = {
-  "alpha-1": fanficMapAlpha1,
-  "alpha-2": fanficMapAlpha2,
-  "delta-1": fanficMapDelta1,
-};
+// const fanficsDB: { [key: string]: IFanfic } = {
+//   "alpha-1": fanficMapAlpha1,
+//   "alpha-2": fanficMapAlpha2,
+//   "delta-1": fanficMapDelta1,
+// };
 
-const fanficMap = computed(
-  () => fanficsDB[route.params.id as keyof typeof fanficsDB]
-);
+// const fanficMap = computed(
+//   () => fanficsDB[route.params.id as keyof typeof fanficsDB]
+// );
 </script>
 
 <style lang="scss" scoped>
@@ -64,7 +61,7 @@ const fanficMap = computed(
   flex-direction: column;
   animation: fadeIn 3s ease-in-out 0s 1 normal;
   &__headline {
-    @include default-headline(28px, 28px, var(--color-text-light));
+    @include default-headline(28px, 28px, var(--color-text));
     margin-bottom: 10px;
     &_title {
       margin-bottom: 20px;
@@ -86,7 +83,7 @@ const fanficMap = computed(
     flex-direction: column;
     row-gap: 5px;
     .fanfic-page__paragraph {
-      @include default-text(24px, 32px, var(--color-text-light));
+      @include default-text(24px, 32px, var(--color-text));
       text-indent: 60px;
       @media (max-width: $phone-l) {
         font-size: 16px;

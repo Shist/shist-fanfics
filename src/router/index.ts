@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MainPage from "@/pages/MainPage.vue";
 import FanficPage from "@/pages/FanficPage.vue";
+import SignInPage from "@/pages/SignInPage.vue";
+import SignUpPage from "@/pages/SignUpPage.vue";
 import NotFoundPage from "@/pages/NotFoundPage.vue";
 
 const router = createRouter({
@@ -13,8 +15,18 @@ const router = createRouter({
     },
     {
       path: "/fanfics/:id",
+      name: "fanfic",
       component: FanficPage,
-      meta: { requiresAuth: true },
+    },
+    {
+      path: "/sign-in",
+      name: "sign-in",
+      component: SignInPage,
+    },
+    {
+      path: "/sign-up",
+      name: "sign-up",
+      component: SignUpPage,
     },
     {
       path: "/:catchAll(.*)",

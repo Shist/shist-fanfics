@@ -12,7 +12,7 @@
     <router-view />
     <footer class="app-footer">
       <div class="app-footer__container">
-        <span class="app-footer__version">Version 1.3.0</span>
+        <span class="app-footer__version">Version 2.0.0</span>
         <div class="app-footer__git-link-wrapper">
           <a
             href="https://github.com/Shist/shist-fanfics"
@@ -81,7 +81,7 @@ onUnmounted(() => {
     .app-header__headline {
       padding: 5px;
       .app-header__headline-link {
-        @include default-headline(45px, 45px, var(--color-text-light));
+        @include default-headline(45px, 45px, var(--color-text));
         text-decoration: none;
         @media (max-width: $tablet-l) {
           font-size: 30px;
@@ -108,7 +108,7 @@ onUnmounted(() => {
       padding-inline: 20px;
     }
     .app-footer__version {
-      @include default-text(16px, 16px, var(--color-text-light));
+      @include default-text(16px, 16px, var(--color-text));
     }
     .app-footer__git-link-wrapper {
       max-width: 280px;
@@ -132,7 +132,7 @@ onUnmounted(() => {
         }
         .app-footer__git-text {
           transition: 0.3s;
-          @include default-text(20px, 20px, var(--color-text-light));
+          @include default-text(20px, 20px, var(--color-text));
           @media (max-width: $laptop-s) {
             font-size: 16px;
             line-height: 16px;
