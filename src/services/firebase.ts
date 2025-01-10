@@ -13,8 +13,12 @@ import {
   setDoc,
   getDocs,
   collection,
+  query,
+  where,
+  orderBy,
+  type Timestamp,
 } from "firebase/firestore/lite";
-import { type IFanfic } from "@/types";
+import { LoadingState, type IFanfic } from "@/types";
 
 const firebaseApp = initializeApp({
   apiKey: import.meta.env.VITE_API_KEY,
@@ -30,6 +34,10 @@ const auth = getAuth(firebaseApp);
 
 function onFirebaseAuthStateChanged(initFoo: (user: IUser | null) => void) {
   onAuthStateChanged(auth, initFoo);
+}
+
+function convertFirestoreTimestampToDate(timestamp: Timestamp): Date {
+  return new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000);
 }
 
 async function signUpUserToFirebase(email: string, password: string) {
@@ -70,19 +78,27 @@ async function signOutUserFromFirebase() {
   await signOut(auth);
 }
 
-async function loadFanficsInfoFromFirebase() {
+async function loadFanficsOfFieldFromFirebase(attractorField: string) {
   const db = getFirestore();
-  const fanficsCollection = collection(db, "fanfics");
-
-  const fanficsSnapshot = await getDocs(fanficsCollection);
+  const queryByAttractorField = query(
+    collection(db, "fanfics"),
+    where("attractorField", "==", attractorField),
+    orderBy("date")
+  );
+  const fanficsSnapshot = await getDocs(queryByAttractorField);
 
   const fanficsInfoArr: IFanfic[] = fanficsSnapshot.docs.map((doc) => {
-    const fanficData = doc.data() as Omit<IFanfic, "id" | "body">;
+    const fanficData = doc.data();
+
+    fanficData.date = convertFirestoreTimestampToDate(fanficData.date);
 
     return {
       id: doc.id,
-      body: "not loaded",
-      ...fanficData,
+      body: {
+        loadingState: LoadingState.NOT_LOADED,
+        paragraphs: [],
+      },
+      ...(fanficData as Omit<IFanfic, "id" | "body">),
     };
   });
 
@@ -94,5 +110,5 @@ export {
   signUpUserToFirebase,
   signInUserToFirebase,
   signOutUserFromFirebase,
-  loadFanficsInfoFromFirebase,
+  loadFanficsOfFieldFromFirebase,
 };

@@ -1,19 +1,39 @@
 import { type Ref } from "vue";
 
+export enum LoadingState {
+  NOT_LOADED,
+  LOADING,
+  LOADED,
+  ERROR,
+}
+
 export interface IHeroReplic {
   color: string;
   hero: string;
   replic: string;
 }
 
+export interface IFanficBody {
+  loadingState: LoadingState;
+  paragraphs: (string | IHeroReplic)[];
+}
+
 export interface IFanfic {
   id: string;
   attractorField: string;
-  date: string;
+  date: Date;
   hentai: boolean;
   psychopathic: boolean;
   title: string;
-  body: (string | IHeroReplic)[] | "not loaded";
+  body: IFanficBody;
+}
+
+export interface IFanficsMap {
+  alpha: IFanfic[];
+  beta: IFanfic[];
+  gamma: IFanfic[];
+  delta: IFanfic[];
+  epsilon: IFanfic[];
 }
 
 export interface IUser {
