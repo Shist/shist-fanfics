@@ -85,7 +85,7 @@ const router = useRouter();
 
 const authStore = useAuthStore();
 
-const { setErrorToast } = useToast();
+const { setLoadingToast, setErrorToast, removeCurrToast } = useToast();
 const { getSignUpValidationError } = useValidationErrorMsg();
 const { getErrorMsg } = useFirebaseErrorMsg();
 
@@ -108,6 +108,7 @@ const onConfirmBtnClicked = async () => {
   }
 
   isLoading.value = true;
+  setLoadingToast("Регистрация...");
 
   try {
     await authStore.signUpUser(email.value, password.value);
@@ -116,6 +117,7 @@ const onConfirmBtnClicked = async () => {
     password.value = "";
     repeatPassword.value = "";
 
+    removeCurrToast();
     router.replace({ name: "main" });
   } catch (error: unknown) {
     if (error instanceof Error) {

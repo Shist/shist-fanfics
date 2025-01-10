@@ -5,11 +5,18 @@ import { toast } from "vue3-toastify";
 export default function useToast() {
   const { currToastId } = storeToRefs(useToastStore());
 
-  const removeCurrToast = () => {
-    if (currToastId.value) {
-      toast.remove(currToastId.value);
-      currToastId.value = null;
-    }
+  const setLoadingToast = (msg: string) => {
+    removeCurrToast();
+
+    const loadingToastId = toast(msg, {
+      type: "loading",
+      position: toast.POSITION.BOTTOM_CENTER,
+      autoClose: false,
+      closeOnClick: false,
+      closeButton: false,
+    });
+
+    currToastId.value = loadingToastId;
   };
 
   const setErrorToast = (msg: string) => {
@@ -24,5 +31,12 @@ export default function useToast() {
     currToastId.value = errorToastId;
   };
 
-  return { removeCurrToast, setErrorToast };
+  const removeCurrToast = () => {
+    if (currToastId.value) {
+      toast.remove(currToastId.value);
+      currToastId.value = null;
+    }
+  };
+
+  return { setLoadingToast, setErrorToast, removeCurrToast };
 }
