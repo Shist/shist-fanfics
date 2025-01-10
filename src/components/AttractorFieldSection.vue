@@ -7,6 +7,7 @@
         :class="cardFieldClass"
         v-for="fanfic in fanfics"
         :key="fanfic.id"
+        @click="onFanficCardClicked(fanfic.id)"
       >
         {{ formatDate(fanfic.date) }} - {{ fanfic.title }}
       </div>
@@ -22,8 +23,11 @@
 
 <script lang="ts" setup>
 import { defineProps, computed } from "vue";
-import getFieldLabel from "@/utils/getFieldLabel";
+import { useRouter } from "vue-router";
+import { formatDate, getFieldLabel } from "@/utils";
 import { type IFanfic } from "@/types";
+
+const router = useRouter();
 
 const props = defineProps<{
   field: "alpha" | "beta" | "gamma" | "delta" | "epsilon";
@@ -38,7 +42,9 @@ const cardFieldClass = computed(
   () => `attractor-field-section__fanfic-card_${props.field}`
 );
 
-const formatDate = (date: Date) => date.toLocaleDateString("ru");
+const onFanficCardClicked = (fanficId: string) => {
+  router.push({ name: "fanfic", params: { fanficId: fanficId } });
+};
 </script>
 
 <style lang="scss" scoped>

@@ -15,9 +15,10 @@ const router = createRouter({
       component: MainPage,
     },
     {
-      path: "/fanfics/:id",
+      path: "/fanfics/:fanficId",
       name: "fanfic",
       component: FanficPage,
+      props: true,
     },
     {
       path: "/sign-in",

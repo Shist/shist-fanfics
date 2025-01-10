@@ -1,4 +1,8 @@
-export default function getFieldLabel(field: string): string {
+export function formatDate(date: Date) {
+  return date.toLocaleDateString("ru");
+}
+
+export function getFieldLabel(field: string): string {
   switch (field) {
     case "alpha":
       return "Альфа (α)";

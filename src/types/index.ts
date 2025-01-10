@@ -36,6 +36,10 @@ export interface IFanficsMap {
   epsilon: IFanfic[];
 }
 
+export function isAttractorField(key: string): key is keyof IFanficsMap {
+  return ["alpha", "beta", "gamma", "delta", "epsilon"].includes(key);
+}
+
 export interface IUser {
   uid: string;
   email: string;
