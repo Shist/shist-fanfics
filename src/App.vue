@@ -35,7 +35,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { useFanficsStore } from "@/store/fanfics";
 import BurgerMenu from "@/components/BurgerMenu.vue";
+
+const fanficsStore = useFanficsStore();
 
 const headerRef = ref<HTMLElement | null>(null);
 
@@ -53,6 +56,8 @@ const handleHeaderScroll = () => {
 
 onMounted(() => {
   window.addEventListener("scroll", handleHeaderScroll);
+
+  fanficsStore.loadFanficsInfo();
 });
 
 onUnmounted(() => {

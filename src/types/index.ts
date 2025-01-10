@@ -7,8 +7,11 @@ export interface IHeroReplic {
 }
 
 export interface IFanfic {
+  id: string;
   attractorField: string;
   date: string;
+  hentai: boolean;
+  psychopathic: boolean;
   title: string;
   body: (string | IHeroReplic)[] | "not loaded";
 }

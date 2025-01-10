@@ -7,7 +7,14 @@ import {
   createUserWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore/lite";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDocs,
+  collection,
+} from "firebase/firestore/lite";
+import { type IFanfic } from "@/types";
 
 const firebaseApp = initializeApp({
   apiKey: import.meta.env.VITE_API_KEY,
@@ -63,9 +70,29 @@ async function signOutUserFromFirebase() {
   await signOut(auth);
 }
 
+async function loadFanficsInfoFromFirebase() {
+  const db = getFirestore();
+  const fanficsCollection = collection(db, "fanfics");
+
+  const fanficsSnapshot = await getDocs(fanficsCollection);
+
+  const fanficsInfoArr: IFanfic[] = fanficsSnapshot.docs.map((doc) => {
+    const fanficData = doc.data() as Omit<IFanfic, "id" | "body">;
+
+    return {
+      id: doc.id,
+      body: "not loaded",
+      ...fanficData,
+    };
+  });
+
+  return fanficsInfoArr;
+}
+
 export {
   onFirebaseAuthStateChanged,
   signUpUserToFirebase,
   signInUserToFirebase,
   signOutUserFromFirebase,
+  loadFanficsInfoFromFirebase,
 };
