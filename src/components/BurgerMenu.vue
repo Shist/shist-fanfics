@@ -97,9 +97,6 @@ const onLogOutBtnClicked = async () => {
 
 <style scoped lang="scss">
 .burger-btn {
-  position: absolute;
-  top: 30px;
-  right: 20px;
   width: 40px;
   height: 40px;
   border: none;

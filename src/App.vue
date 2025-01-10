@@ -7,8 +7,8 @@
             Shist fanfics
           </router-link>
         </h1>
+        <BurgerMenu />
       </div>
-      <BurgerMenu />
     </header>
     <router-view />
     <footer class="app-footer">
@@ -91,12 +91,12 @@ onUnmounted(() => {
         @include default-headline(45px, 45px, var(--color-text));
         text-decoration: none;
         @media (max-width: $tablet-l) {
-          font-size: 30px;
-          line-height: 30px;
+          font-size: 35px;
+          line-height: 35px;
         }
         @media (max-width: $phone-l) {
-          font-size: 18px;
-          line-height: 18px;
+          font-size: 30px;
+          line-height: 30px;
         }
       }
     }

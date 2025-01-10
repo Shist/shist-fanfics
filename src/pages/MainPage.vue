@@ -1,13 +1,11 @@
 <template>
   <main class="main-page">
-    <div v-if="isLoadingSectionVisible" class="main-page__fanfics-load-section">
-      Loading fanfic...
-    </div>
+    <FanficsListSamples v-if="isLoadingSectionVisible" />
     <div
       v-else-if="isErrorSectionVisible"
       class="main-page__fanfics-load-error"
     >
-      Some error occured while loading fanfics!
+      An error occurred while loading fanfics!<br />Please try again later...
     </div>
     <div v-else-if="isFanficsSectionVisible" class="main-page__fanfics-list">
       <AttractorFieldSection field="alpha" :fanfics="fanfics.alpha" />
@@ -24,6 +22,7 @@ import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 import { useFanficsStore } from "@/store/fanfics";
+import FanficsListSamples from "@/components/FanficsListSamples.vue";
 import AttractorFieldSection from "@/components/AttractorFieldSection.vue";
 import { LoadingState } from "@/types";
 
@@ -55,9 +54,16 @@ const isFanficsSectionVisible = computed(
 .main-page {
   flex-grow: 1;
   @extend %default-wrapper;
-  &__fanfics-load-section {
-  }
   &__fanfics-load-error {
+    @include default-text(28px, 28px, var(--color-text));
+    @media (max-width: $tablet-l) {
+      font-size: 24px;
+      line-height: 24px;
+    }
+    @media (max-width: $phone-l) {
+      font-size: 16px;
+      line-height: 16px;
+    }
   }
   &__fanfics-list {
     display: flex;
