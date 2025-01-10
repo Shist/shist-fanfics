@@ -22,11 +22,17 @@
                 Выйти
               </a>
             </li>
-            <li v-else class="burger-menu__nav-list-item">
+            <li
+              v-else-if="isLogInBtnVisible"
+              class="burger-menu__nav-list-item"
+            >
               <a class="burger-menu__link" @click.stop="onLogInBtnClicked">
                 Войти
               </a>
             </li>
+            <span v-else class="burger-menu__nav-list-no-options-label">
+              (нет доступных опций)
+            </span>
           </ul>
         </nav>
       </div>
@@ -50,6 +56,10 @@ const { getErrorMsg } = useFirebaseErrorMsg();
 const isMenuOpened = ref(false);
 
 const userEmail = computed(() => authStore.user?.email);
+
+const isLogInBtnVisible = computed(
+  () => !userEmail.value && router.currentRoute.value.name !== "sign-in"
+);
 
 const openMenu = () => {
   isMenuOpened.value = true;
@@ -257,6 +267,17 @@ const onLogOutBtnClicked = async () => {
             font-size: 20px;
             line-height: 20px;
           }
+        }
+      }
+      .burger-menu__nav-list-no-options-label {
+        @include default-text(24px, 24px, var(--color-burger-menu-text));
+        @media (max-width: $tablet-l) {
+          font-size: 20px;
+          line-height: 20px;
+        }
+        @media (max-width: $phone-l) {
+          font-size: 16px;
+          line-height: 16px;
         }
       }
     }
