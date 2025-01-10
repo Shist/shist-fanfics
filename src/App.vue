@@ -8,6 +8,7 @@
           </router-link>
         </h1>
       </div>
+      <BurgerMenu />
     </header>
     <router-view />
     <footer class="app-footer">
@@ -34,6 +35,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import BurgerMenu from "@/components/BurgerMenu.vue";
 
 const headerRef = ref<HTMLElement | null>(null);
 
