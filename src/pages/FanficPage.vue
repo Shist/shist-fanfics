@@ -174,11 +174,13 @@ const targetFanfic = computed<IFanfic | null>(() => {
 const fanficHeadline = computed(() => getFieldLabel(attractorField));
 
 const fanficDate = computed(() =>
-  targetFanfic.value ? formatDate(targetFanfic.value.date) : "(no fanfic found)"
+  targetFanfic.value
+    ? formatDate(targetFanfic.value.date)
+    : "(фанфик не найден)"
 );
 
 const fanficTitle = computed(() =>
-  targetFanfic.value ? targetFanfic.value.title : "(no fanfic found)"
+  targetFanfic.value ? targetFanfic.value.title : "(фанфик не найден)"
 );
 
 const isFanficBodyLoading = computed(

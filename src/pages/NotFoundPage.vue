@@ -1,8 +1,8 @@
 <template>
   <div class="not-found-page">
-    <h1 class="not-found-page__headline">This page does not exist</h1>
+    <h1 class="not-found-page__headline">Эта страница не существует</h1>
     <router-link to="/" class="not-found-page__link-to-main">
-      Back to the main page
+      Назад на главную страницу
     </router-link>
   </div>
 </template>

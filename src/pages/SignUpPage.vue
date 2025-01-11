@@ -85,7 +85,7 @@ const router = useRouter();
 
 const authStore = useAuthStore();
 
-const { setLoadingToast, setErrorToast, removeCurrToast } = useToast();
+const { setLoadingToast, setSuccessToast, setErrorToast } = useToast();
 const { getSignUpValidationError } = useValidationErrorMsg();
 const { getErrorMsg } = useFirebaseErrorMsg();
 
@@ -117,7 +117,7 @@ const onConfirmBtnClicked = async () => {
     password.value = "";
     repeatPassword.value = "";
 
-    removeCurrToast();
+    setSuccessToast("🥳🥳🥳 Аккаунт успешно зарегистрирован!!! 🥳🥳🥳");
     router.replace({ name: "main" });
   } catch (error: unknown) {
     if (error instanceof Error) {

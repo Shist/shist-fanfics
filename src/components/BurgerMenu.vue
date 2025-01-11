@@ -85,7 +85,7 @@ const onLogOutBtnClicked = async () => {
 
     isMenuOpened.value = false;
 
-    router.replace({ name: "sign-in" });
+    router.push({ name: "sign-in" });
   } catch (error: unknown) {
     if (error instanceof Error) {
       const errorMsg = getErrorMsg(error);

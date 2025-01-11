@@ -13,7 +13,7 @@
     <router-view />
     <footer class="app-footer">
       <div class="app-footer__container">
-        <span class="app-footer__version">Version 2.0.0</span>
+        <span class="app-footer__version">Версия 2.0.0</span>
         <div class="app-footer__git-link-wrapper">
           <a
             href="https://github.com/Shist/shist-fanfics"
@@ -25,7 +25,7 @@
               alt="GitHub"
               class="app-footer__git-img"
             />
-            <p class="app-footer__git-text">This project on GitHub</p>
+            <p class="app-footer__git-text">Этот проект на GitHub</p>
           </a>
         </div>
       </div>

@@ -19,6 +19,18 @@ export default function useToast() {
     currToastId.value = loadingToastId;
   };
 
+  const setSuccessToast = (msg: string) => {
+    removeCurrToast();
+
+    const successToastId = toast(msg, {
+      type: "success",
+      position: toast.POSITION.BOTTOM_CENTER,
+      closeOnClick: false,
+    });
+
+    currToastId.value = successToastId;
+  };
+
   const setErrorToast = (msg: string) => {
     removeCurrToast();
 
@@ -38,5 +50,5 @@ export default function useToast() {
     }
   };
 
-  return { setLoadingToast, setErrorToast, removeCurrToast };
+  return { setLoadingToast, setSuccessToast, setErrorToast, removeCurrToast };
 }
