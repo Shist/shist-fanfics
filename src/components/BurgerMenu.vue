@@ -1,6 +1,6 @@
 <template>
-  <button class="burger-btn" @click="openMenu"></button>
-  <teleport to="#app">
+  <button class="burger-btn" @click="openMenu" />
+  <Teleport defer to=".global-container">
     <Transition name="fade-slide">
       <div v-if="isMenuOpened" class="burger-menu" @click="closeMenu">
         <nav v-if="isMenuOpened" class="burger-menu__nav">
@@ -15,7 +15,12 @@
             </div>
           </div>
           <h2 class="burger-menu__headline">Меню</h2>
-          <!-- <theme-switch class="burger-menu__theme-switch" /> -->
+          <div class="burger-menu__option-wrapper">
+            <span class="burger-menu__theme-switch-label">
+              {{ switchThemeLabel }}
+            </span>
+            <ThemeSwitcher class="burger-menu__theme-switch" />
+          </div>
           <ul class="burger-menu__nav-list">
             <li v-if="userEmail" class="burger-menu__nav-list-item">
               <a class="burger-menu__link" @click.stop="onLogOutBtnClicked">
@@ -30,25 +35,26 @@
                 Войти
               </a>
             </li>
-            <span v-else class="burger-menu__nav-list-no-options-label">
-              (нет доступных опций)
-            </span>
           </ul>
         </nav>
       </div>
     </Transition>
-  </teleport>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/store/auth";
+import { useThemeStore } from "@/store/theme";
 import useToast from "@/composables/useToast";
 import useFirebaseErrorMsg from "@/composables/useFirebaseErrorMsg";
+import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
 
 const router = useRouter();
+
 const authStore = useAuthStore();
+const themeStore = useThemeStore();
 
 const { setErrorToast } = useToast();
 const { getErrorMsg } = useFirebaseErrorMsg();
@@ -56,6 +62,11 @@ const { getErrorMsg } = useFirebaseErrorMsg();
 const isMenuOpened = ref(false);
 
 const userEmail = computed(() => authStore.user?.email);
+
+const switchThemeLabel = computed(
+  () =>
+    `Включить ${themeStore.currTheme === "dark" ? "светлую" : "тёмную"} тему:`
+);
 
 const isLogInBtnVisible = computed(
   () => !userEmail.value && router.currentRoute.value.name !== "sign-in"
@@ -216,18 +227,32 @@ const onLogOutBtnClicked = async () => {
     }
     .burger-menu__headline {
       @include default-headline(48px, 48px, var(--color-burger-menu-text));
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       text-align: center;
       @media (max-width: $tablet-l) {
         font-size: 36px;
         line-height: 36px;
       }
     }
-    .burger-menu__theme-switch {
-      margin-bottom: 20px;
+    .burger-menu__option-wrapper {
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 5px;
+      .burger-menu__theme-switch-label {
+        @include default-text(32px, 32px, var(--color-burger-menu-text));
+        @media (max-width: $tablet-l) {
+          font-size: 24px;
+          line-height: 24px;
+        }
+        @media (max-width: $phone-l) {
+          font-size: 18px;
+          line-height: 18px;
+        }
+      }
     }
     .burger-menu__nav-list {
-      margin-bottom: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -246,9 +271,6 @@ const onLogOutBtnClicked = async () => {
             color: var(--color-burger-menu-link);
           }
         }
-        @media (max-width: $phone-l) {
-          padding: 15px;
-        }
         .burger-menu__link {
           @include default-text(36px, 36px, var(--color-burger-menu-text));
           display: inline-block;
@@ -264,17 +286,6 @@ const onLogOutBtnClicked = async () => {
             font-size: 20px;
             line-height: 20px;
           }
-        }
-      }
-      .burger-menu__nav-list-no-options-label {
-        @include default-text(24px, 24px, var(--color-burger-menu-text));
-        @media (max-width: $tablet-l) {
-          font-size: 20px;
-          line-height: 20px;
-        }
-        @media (max-width: $phone-l) {
-          font-size: 16px;
-          line-height: 16px;
         }
       }
     }

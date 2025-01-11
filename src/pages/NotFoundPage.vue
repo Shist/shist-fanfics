@@ -7,8 +7,6 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
-
 <style lang="scss" scoped>
 .not-found-page {
   flex-grow: 1;

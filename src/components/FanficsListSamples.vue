@@ -2,19 +2,19 @@
   <div class="fanfics-list-sample">
     <div
       class="fanfics-list-sample__field-card fanfics-list-sample__field-card_big"
-    ></div>
+    />
     <div
       class="fanfics-list-sample__field-card fanfics-list-sample__field-card_small"
-    ></div>
+    />
     <div
       class="fanfics-list-sample__field-card fanfics-list-sample__field-card_medium"
-    ></div>
+    />
     <div
       class="fanfics-list-sample__field-card fanfics-list-sample__field-card_medium"
-    ></div>
+    />
     <div
       class="fanfics-list-sample__field-card fanfics-list-sample__field-card_small"
-    ></div>
+    />
   </div>
 </template>
 

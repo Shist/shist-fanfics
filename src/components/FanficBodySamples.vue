@@ -1,35 +1,35 @@
 <template>
   <div class="fanfic-body-samples">
     <div class="fanfic-body-samples__paragraph">
-      <div class="fanfic-body-samples__paragraph-top"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-bottom"></div>
+      <div class="fanfic-body-samples__paragraph-top" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-bottom" />
     </div>
     <div class="fanfic-body-samples__paragraph">
-      <div class="fanfic-body-samples__paragraph-top"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-bottom"></div>
+      <div class="fanfic-body-samples__paragraph-top" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-bottom" />
     </div>
     <div class="fanfic-body-samples__paragraph">
-      <div class="fanfic-body-samples__paragraph-top"></div>
-      <div class="fanfic-body-samples__paragraph-bottom"></div>
+      <div class="fanfic-body-samples__paragraph-top" />
+      <div class="fanfic-body-samples__paragraph-bottom" />
     </div>
     <div class="fanfic-body-samples__paragraph">
-      <div class="fanfic-body-samples__paragraph-top"></div>
-      <div class="fanfic-body-samples__paragraph-bottom"></div>
+      <div class="fanfic-body-samples__paragraph-top" />
+      <div class="fanfic-body-samples__paragraph-bottom" />
     </div>
     <div class="fanfic-body-samples__paragraph">
-      <div class="fanfic-body-samples__paragraph-top"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-middle"></div>
-      <div class="fanfic-body-samples__paragraph-bottom"></div>
+      <div class="fanfic-body-samples__paragraph-top" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-middle" />
+      <div class="fanfic-body-samples__paragraph-bottom" />
     </div>
   </div>
 </template>

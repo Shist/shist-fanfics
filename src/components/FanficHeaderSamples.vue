@@ -2,13 +2,13 @@
   <div class="fanfic-header-samples">
     <div
       class="fanfic-header-samples__label-sample fanfic-header-samples__label-sample_field"
-    ></div>
+    />
     <div
       class="fanfic-header-samples__label-sample fanfic-header-samples__label-sample_date"
-    ></div>
+    />
     <div
       class="fanfic-header-samples__label-sample fanfic-header-samples__label-sample_title"
-    ></div>
+    />
   </div>
 </template>
 
