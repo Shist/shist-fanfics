@@ -4,36 +4,55 @@ import {
   signUpUserToFirebase,
   signInUserToFirebase,
   signOutUserFromFirebase,
+  loadUserAccessInfoFromFirbase,
 } from "@/services/firebase";
 import { type IUser } from "@/types";
 
 export const useAuthStore = defineStore("auth", () => {
   const user = ref<IUser | null>(null);
 
-  const setUserCredentials = (newUser: IUser) => {
-    user.value = newUser;
+  const setBaseUserInfo = (userUid: string, userEmail: string) => {
+    if (user.value) {
+      user.value.uid = userUid;
+      user.value.email = userEmail;
+    } else {
+      user.value = {
+        uid: userUid,
+        email: userEmail,
+        isImportant: "loading",
+      };
+    }
+  };
+
+  const setUserImportance = (
+    isUserImportant: boolean | "loading" | "loadingError"
+  ) => {
+    if (user.value) {
+      user.value.isImportant = isUserImportant;
+    }
   };
 
   const signUpUser = async (email: string, password: string) => {
     const authServerData = await signUpUserToFirebase(email, password);
 
     if (authServerData) {
-      setUserCredentials({
-        uid: authServerData.user.uid,
-        email: authServerData.user.email ?? "",
-      });
+      setBaseUserInfo(authServerData.user.uid, authServerData.user.email ?? "");
+      setUserImportance(false);
     }
   };
 
   const signInUser = async (email: string, password: string) => {
     const authServerData = await signInUserToFirebase(email, password);
 
-    if (authServerData) {
-      setUserCredentials({
-        uid: authServerData.user.uid,
-        email: authServerData.user.email ?? "",
+    setBaseUserInfo(authServerData.user.uid, authServerData.user.email ?? "");
+
+    loadUserAccessInfoFromFirbase()
+      .then((isUserImportant) => {
+        setUserImportance(isUserImportant);
+      })
+      .catch(() => {
+        setUserImportance("loadingError");
       });
-    }
   };
 
   const signOutUser = async () => {
@@ -44,7 +63,8 @@ export const useAuthStore = defineStore("auth", () => {
 
   return {
     user,
-    setUserCredentials,
+    setBaseUserInfo,
+    setUserImportance,
     signUpUser,
     signInUser,
     signOutUser,

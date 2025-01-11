@@ -51,6 +51,12 @@ export function isAttractorField(key: string): key is keyof IFanficsMap {
 export interface IUser {
   uid: string;
   email: string;
+  isImportant: boolean | "loading" | "loadingError";
+}
+
+export interface IUserFromFirebaseDatabase {
+  email: string;
+  isImportant: boolean;
 }
 
 export interface ISignUpStateRef {

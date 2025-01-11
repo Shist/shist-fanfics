@@ -9,9 +9,28 @@
             <span v-if="!userEmail" class="burger-menu__no-auth-label">
               Ещё не авторизован
             </span>
-            <div v-else class="burger-menu__email-wrapper">
-              <span class="burger-menu__email-label">Почта:</span>
-              <span class="burger-menu__email-value">{{ userEmail }}</span>
+            <div v-else class="burger-menu__acc-info-wrapper">
+              <div class="burger-menu__email-wrapper">
+                <span class="burger-menu__email-label">Почта:</span>
+                <span class="burger-menu__email-value">{{ userEmail }}</span>
+              </div>
+              <div class="burger-menu__access-info-wrapper">
+                <span class="burger-menu__access-info-label">
+                  Доступ к запретной секции:
+                </span>
+                <AppSpinner v-if="isUserImportant === 'loading'" />
+                <span
+                  v-else-if="isUserImportant === 'loadingError'"
+                  class="burger-menu__access-info-error-label"
+                >
+                  (ошибка загрузки)
+                </span>
+                <AppStatusIcon
+                  v-else
+                  :isCheck="isUserImportant"
+                  class="burger-menu__access-info-img"
+                />
+              </div>
             </div>
           </div>
           <h2 class="burger-menu__headline">Меню</h2>
@@ -62,6 +81,7 @@ const { getErrorMsg } = useFirebaseErrorMsg();
 const isMenuOpened = ref(false);
 
 const userEmail = computed(() => authStore.user?.email);
+const isUserImportant = computed(() => authStore.user?.isImportant);
 
 const switchThemeLabel = computed(
   () =>
@@ -198,29 +218,75 @@ const onLogOutBtnClicked = async () => {
           line-height: 20px;
         }
       }
-      .burger-menu__email-wrapper {
+      .burger-menu__acc-info-wrapper {
         display: flex;
-        align-items: baseline;
-        column-gap: 5px;
-        .burger-menu__email-label {
-          @include default-text(28px, 28px, var(--color-burger-menu-text));
-          @media (max-width: $tablet-l) {
-            font-size: 20px;
-            line-height: 20px;
+        flex-direction: column;
+        row-gap: 5px;
+        .burger-menu__email-wrapper {
+          display: flex;
+          align-items: center;
+          column-gap: 5px;
+          .burger-menu__email-label {
+            @include default-text(28px, 28px, var(--color-burger-menu-text));
+            @media (max-width: $tablet-l) {
+              font-size: 20px;
+              line-height: 20px;
+            }
+            @media (max-width: $phone-l) {
+              font-size: 14px;
+              line-height: 14px;
+            }
+            @media (max-width: $phone-m) {
+              font-size: 12px;
+              line-height: 12px;
+            }
+          }
+          .burger-menu__email-value {
+            @include default-text(28px, 30px, var(--color-burger-menu-text));
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            @media (max-width: $tablet-l) {
+              font-size: 16px;
+              line-height: 18px;
+            }
+            @media (max-width: $phone-l) {
+              font-size: 12px;
+              line-height: 14px;
+            }
           }
         }
-        .burger-menu__email-value {
-          @include default-text(28px, 30px, var(--color-burger-menu-text));
-          overflow: hidden;
-          text-overflow: ellipsis;
-          text-wrap: nowrap;
-          @media (max-width: $tablet-l) {
-            font-size: 16px;
-            line-height: 18px;
+        .burger-menu__access-info-wrapper {
+          display: flex;
+          align-items: center;
+          column-gap: 5px;
+          .burger-menu__access-info-label,
+          .burger-menu__access-info-error-label {
+            @include default-text(28px, 28px, var(--color-burger-menu-text));
+            @media (max-width: $tablet-l) {
+              font-size: 20px;
+              line-height: 20px;
+            }
+            @media (max-width: $phone-l) {
+              font-size: 14px;
+              line-height: 14px;
+            }
+            @media (max-width: $phone-m) {
+              font-size: 12px;
+              line-height: 12px;
+            }
           }
-          @media (max-width: $phone-l) {
-            font-size: 12px;
-            line-height: 14px;
+          .burger-menu__access-info-img {
+            width: 28px;
+            height: 28px;
+            @media (max-width: $tablet-l) {
+              width: 20px;
+              height: 20px;
+            }
+            @media (max-width: $phone-m) {
+              width: 12px;
+              height: 12px;
+            }
           }
         }
       }

@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import {
   getAuth,
   onAuthStateChanged,
-  type User as IUser,
+  type User as IFirebaseUser,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
@@ -11,6 +11,7 @@ import {
   getFirestore,
   doc,
   setDoc,
+  getDoc,
   getDocs,
   collection,
   query,
@@ -18,7 +19,12 @@ import {
   orderBy,
   type Timestamp,
 } from "firebase/firestore/lite";
-import { BodyLoadingState, type IFanfic, type IHeroReplic } from "@/types";
+import {
+  BodyLoadingState,
+  type IFanfic,
+  type IHeroReplic,
+  type IUserFromFirebaseDatabase,
+} from "@/types";
 
 const firebaseApp = initializeApp({
   apiKey: import.meta.env.VITE_API_KEY,
@@ -32,7 +38,9 @@ const firebaseApp = initializeApp({
 
 const auth = getAuth(firebaseApp);
 
-function onFirebaseAuthStateChanged(initFoo: (user: IUser | null) => void) {
+function onFirebaseAuthStateChanged(
+  initFoo: (user: IFirebaseUser | null) => void
+) {
   onAuthStateChanged(auth, initFoo);
 }
 
@@ -57,7 +65,6 @@ async function signUpUserToFirebase(email: string, password: string) {
 
   await setDoc(doc(db, "users", newUserInfo.user.uid), {
     email,
-    password,
     isImportant: false,
   });
 
@@ -76,6 +83,18 @@ async function signOutUserFromFirebase() {
   const auth = getAuth();
 
   await signOut(auth);
+}
+
+async function loadUserAccessInfoFromFirbase() {
+  const db = getFirestore();
+
+  const userDataDoc = doc(db, "users", `${auth.currentUser?.uid}`);
+
+  const userDocSnapshot = await getDoc(userDataDoc);
+  const userDocData = userDocSnapshot.data() as IUserFromFirebaseDatabase;
+  const userAccessInfo = userDocData.isImportant;
+
+  return userAccessInfo;
 }
 
 async function loadFanficsOfFieldFromFirebase(attractorField: string) {
@@ -129,6 +148,7 @@ export {
   signUpUserToFirebase,
   signInUserToFirebase,
   signOutUserFromFirebase,
+  loadUserAccessInfoFromFirbase,
   loadFanficsOfFieldFromFirebase,
   loadFanficBodyFromFirebase,
 };

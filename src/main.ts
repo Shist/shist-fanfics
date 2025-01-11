@@ -4,15 +4,18 @@ import router from "@/router";
 import { createPinia } from "pinia";
 import { useAuthStore } from "@/store/auth";
 import { useThemeStore } from "@/store/theme";
-import { type User as IUser } from "firebase/auth";
-import { onFirebaseAuthStateChanged } from "@/services/firebase";
+import { type User as IFirebaseUser } from "firebase/auth";
+import {
+  onFirebaseAuthStateChanged,
+  loadUserAccessInfoFromFirbase,
+} from "@/services/firebase";
 import appComponents from "@/components/ui";
 import Vue3Toasity from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 
 let app: IApp | null = null;
 
-onFirebaseAuthStateChanged((user: IUser | null) => {
+onFirebaseAuthStateChanged((user: IFirebaseUser | null) => {
   if (!app) {
     app = createApp(App);
 
@@ -31,11 +34,16 @@ onFirebaseAuthStateChanged((user: IUser | null) => {
   }
 
   if (user) {
-    const { setUserCredentials } = useAuthStore();
+    const { setBaseUserInfo, setUserImportance } = useAuthStore();
 
-    setUserCredentials({
-      uid: user.uid,
-      email: user.email ?? "",
-    });
+    setBaseUserInfo(user.uid, user.email ?? "");
+
+    loadUserAccessInfoFromFirbase()
+      .then((isUserImportant) => {
+        setUserImportance(isUserImportant);
+      })
+      .catch(() => {
+        setUserImportance("loadingError");
+      });
   }
 });
