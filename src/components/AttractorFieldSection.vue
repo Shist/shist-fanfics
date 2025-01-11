@@ -9,7 +9,14 @@
         :key="fanfic.id"
         @click="onFanficCardClicked(fanfic.id)"
       >
-        {{ formatDate(fanfic.date) }} - {{ fanfic.title }}
+        <div class="attractor-field-section__badges-wrapper">
+          <BadgeTopSecret v-if="fanfic.isConfidential" />
+          <BadgeHentai v-if="fanfic.isHentai" />
+          <BadgePsychopathic v-if="fanfic.isPsychopathic" />
+        </div>
+        <span class="attractor-field-section__fanfic-title"
+          >{{ formatDate(fanfic.date) }} - {{ fanfic.title }}</span
+        >
       </div>
       <span
         v-if="!fanfics.length"
@@ -24,6 +31,9 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import BadgeTopSecret from "@/components/badges/BadgeTopSecret.vue";
+import BadgeHentai from "@/components/badges/BadgeHentai.vue";
+import BadgePsychopathic from "@/components/badges/BadgePsychopathic.vue";
 import { formatDate, getFieldLabel } from "@/utils";
 import { type IFanfic } from "@/types";
 
@@ -96,8 +106,7 @@ const onFanficCardClicked = (fanficId: string) => {
     }
     .attractor-field-section__fanfic-card {
       position: relative;
-      @include default-text(28px, 28px, var(--color-text-dark));
-      padding: 15px;
+      padding: 10px;
       border-radius: 10px;
       border: 3px var(--color-text-dark) solid;
       cursor: pointer;
@@ -126,9 +135,7 @@ const onFanficCardClicked = (fanficId: string) => {
         opacity: 1;
       }
       @media (max-width: $phone-l) {
-        padding: 10px;
-        font-size: 16px;
-        line-height: 16px;
+        padding: 8px;
       }
       &_alpha {
         background-color: var(--color-alpha);
@@ -144,6 +151,21 @@ const onFanficCardClicked = (fanficId: string) => {
       }
       &_epsilon {
         background-color: var(--color-epsilon);
+      }
+      .attractor-field-section__badges-wrapper {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        @media (max-width: $phone-l) {
+          gap: 5px;
+        }
+      }
+      .attractor-field-section__fanfic-title {
+        @include default-text(28px, 28px, var(--color-text-dark));
+        @media (max-width: $phone-l) {
+          font-size: 16px;
+          line-height: 16px;
+        }
       }
     }
   }
