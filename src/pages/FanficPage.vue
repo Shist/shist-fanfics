@@ -50,11 +50,6 @@
         v-else-if="isFanficBodyLoadingAccessError"
         class="fanfic-page__access-error-wrapper"
       >
-        <img
-          class="fanfic-page__access-error-img"
-          src="@/assets/images/forbidden-section.png"
-          alt="Forbidden section"
-        />
         <h2 class="fanfic-page__fanfics-load-error">
           Похоже, что вы попытались загрузить контент для фанфика, относящегося
           к запретной секции! Чтобы получить доступ к контенту фанфика с
@@ -104,6 +99,11 @@
             </a>
           </div>
         </div>
+        <img
+          class="fanfic-page__access-error-img"
+          src="@/assets/images/forbidden-section.png"
+          alt="Forbidden section"
+        />
       </div>
       <div
         v-else-if="isFanficBodyLoaded"
@@ -289,9 +289,6 @@ onUnmounted(() => {
       align-items: center;
       row-gap: 10px;
       animation: fadeIn 3s ease-in-out 0s 1 normal;
-      .fanfic-page__access-error-img {
-        max-width: 100%;
-      }
       .fanfic-page__shist-socials {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -325,6 +322,9 @@ onUnmounted(() => {
             }
           }
         }
+      }
+      .fanfic-page__access-error-img {
+        max-width: 100%;
       }
     }
     .fanfic-page__paragraphs-wrapper {
