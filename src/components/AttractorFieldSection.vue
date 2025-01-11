@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { formatDate, getFieldLabel } from "@/utils";
 import { type IFanfic } from "@/types";

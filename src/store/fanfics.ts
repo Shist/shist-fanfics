@@ -1,10 +1,19 @@
 import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
-import { loadFanficsOfFieldFromFirebase } from "@/services/firebase";
-import { LoadingState, type IFanficsMap } from "@/types";
+import { FirebaseError } from "firebase/app";
+import {
+  loadFanficBodyFromFirebase,
+  loadFanficsOfFieldFromFirebase,
+} from "@/services/firebase";
+import {
+  LoadingState,
+  BodyLoadingState,
+  type IFanficsMap,
+  isAttractorField,
+} from "@/types";
 
 export const useFanficsStore = defineStore("fanfics", () => {
-  const fanficsLoadingState = ref<LoadingState>(LoadingState.NOT_LOADED);
+  const fanficsLoadingState = ref<LoadingState>(LoadingState.LOADING);
 
   const fanfics = reactive<IFanficsMap>({
     alpha: [],
@@ -16,8 +25,6 @@ export const useFanficsStore = defineStore("fanfics", () => {
 
   const loadFanficsInfo = async () => {
     try {
-      fanficsLoadingState.value = LoadingState.LOADING;
-
       const loadedFanfics = await Promise.all([
         loadFanficsOfFieldFromFirebase("alpha"),
         loadFanficsOfFieldFromFirebase("beta"),
@@ -38,5 +45,43 @@ export const useFanficsStore = defineStore("fanfics", () => {
     }
   };
 
-  return { fanfics, fanficsLoadingState, loadFanficsInfo };
+  const loadFanficBody = async (fanficId: string) => {
+    const attractorField = fanficId.split("-")[0];
+
+    if (!isAttractorField(attractorField)) {
+      return;
+    }
+
+    const targetFanfic = fanfics[attractorField].find(
+      (fanfic) => fanfic.id === fanficId
+    );
+
+    if (!targetFanfic) {
+      return;
+    }
+
+    try {
+      targetFanfic.body.loadingState = BodyLoadingState.LOADING;
+
+      const fanficParagraphs = await loadFanficBodyFromFirebase(fanficId);
+
+      targetFanfic.body.paragraphs = fanficParagraphs;
+      targetFanfic.body.loadingState = BodyLoadingState.LOADED;
+    } catch (error) {
+      targetFanfic.body.loadingState = BodyLoadingState.ERROR;
+
+      if (error instanceof FirebaseError) {
+        if (error.code === "permission-denied") {
+          targetFanfic.body.loadingState = BodyLoadingState.ACCESS_ERROR;
+        }
+      }
+    }
+  };
+
+  return {
+    fanfics,
+    fanficsLoadingState,
+    loadFanficsInfo,
+    loadFanficBody,
+  };
 });

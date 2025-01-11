@@ -1,10 +1,17 @@
 import { type Ref } from "vue";
 
 export enum LoadingState {
+  LOADING,
+  LOADED,
+  ERROR,
+}
+
+export enum BodyLoadingState {
   NOT_LOADED,
   LOADING,
   LOADED,
   ERROR,
+  ACCESS_ERROR,
 }
 
 export interface IHeroReplic {
@@ -14,16 +21,17 @@ export interface IHeroReplic {
 }
 
 export interface IFanficBody {
-  loadingState: LoadingState;
+  loadingState: BodyLoadingState;
   paragraphs: (string | IHeroReplic)[];
 }
 
 export interface IFanfic {
   id: string;
+  isConfidential: boolean;
   attractorField: string;
   date: Date;
-  hentai: boolean;
-  psychopathic: boolean;
+  isHentai: boolean;
+  isPsychopathic: boolean;
   title: string;
   body: IFanficBody;
 }

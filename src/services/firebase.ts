@@ -18,7 +18,7 @@ import {
   orderBy,
   type Timestamp,
 } from "firebase/firestore/lite";
-import { LoadingState, type IFanfic } from "@/types";
+import { BodyLoadingState, type IFanfic, type IHeroReplic } from "@/types";
 
 const firebaseApp = initializeApp({
   apiKey: import.meta.env.VITE_API_KEY,
@@ -95,7 +95,7 @@ async function loadFanficsOfFieldFromFirebase(attractorField: string) {
     return {
       id: doc.id,
       body: {
-        loadingState: LoadingState.NOT_LOADED,
+        loadingState: BodyLoadingState.NOT_LOADED,
         paragraphs: [],
       },
       ...(fanficData as Omit<IFanfic, "id" | "body">),
@@ -105,10 +105,30 @@ async function loadFanficsOfFieldFromFirebase(attractorField: string) {
   return fanficsInfoArr;
 }
 
+async function loadFanficBodyFromFirebase(
+  fanficId: string
+): Promise<(string | IHeroReplic)[]> {
+  const db = getFirestore();
+  const fanficContentCollection = collection(
+    db,
+    "fanfics",
+    fanficId,
+    "content"
+  );
+  const fanficContentsSnapshot = await getDocs(fanficContentCollection);
+
+  const fanficContentDoc = fanficContentsSnapshot.docs[0];
+  const fanficBody = fanficContentDoc.data();
+  const fanficParagraphs = fanficBody.paragraphs as (string | IHeroReplic)[];
+
+  return fanficParagraphs;
+}
+
 export {
   onFirebaseAuthStateChanged,
   signUpUserToFirebase,
   signInUserToFirebase,
   signOutUserFromFirebase,
   loadFanficsOfFieldFromFirebase,
+  loadFanficBodyFromFirebase,
 };
