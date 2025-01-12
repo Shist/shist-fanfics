@@ -1,7 +1,9 @@
 <template>
   <div class="global-container" :class="{ 'light-theme': isLightTheme }">
     <TheHeader />
-    <router-view />
+    <main class="main-wrapper">
+      <router-view />
+    </main>
     <TheFooter />
   </div>
 </template>
@@ -37,6 +39,11 @@ onMounted(() => {
 }
 .global-container * {
   transition: all 0.3s ease;
+}
+
+.main-wrapper {
+  flex-grow: 1;
+  @extend %default-wrapper;
 }
 
 .Toastify__toast-container .Toastify__toast {

@@ -1,5 +1,5 @@
 <template>
-  <main class="fanfic-page">
+  <div class="fanfic-page">
     <EffectPsychopathic v-if="isPsychopathicEffectNeeded" />
     <div class="fanfic-page__header-content-wrapper">
       <FanficHeaderSamples v-if="areFanficsLoading" />
@@ -135,7 +135,7 @@
         </template>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -244,8 +244,6 @@ onUnmounted(() => {
 }
 
 .fanfic-page {
-  flex-grow: 1;
-  @extend %default-wrapper;
   display: flex;
   flex-direction: column;
   &__header-content-wrapper {

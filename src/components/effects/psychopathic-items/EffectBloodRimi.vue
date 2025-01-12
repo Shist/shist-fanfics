@@ -1,5 +1,5 @@
 <template>
-  <div class="blood-rimi" :style="rimiStyles"></div>
+  <div class="blood-rimi" :style="rimiStyles" />
 </template>
 
 <script setup lang="ts">

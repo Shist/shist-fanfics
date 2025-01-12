@@ -9,8 +9,6 @@
 
 <style lang="scss" scoped>
 .not-found-page {
-  flex-grow: 1;
-  @extend %default-wrapper;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

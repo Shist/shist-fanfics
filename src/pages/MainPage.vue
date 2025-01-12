@@ -1,5 +1,5 @@
 <template>
-  <main class="main-page">
+  <div class="main-page">
     <FanficsListSamples v-if="areFanficsLoading" />
     <h2 v-else-if="isFanficsLoadingError" class="main-page__fanfics-load-error">
       Произошла ошибка при загрузке фанфиков!<br />Пожалуйста, попробуйте еще
@@ -12,7 +12,7 @@
       <AttractorFieldSection field="delta" :fanfics="fanfics.delta" />
       <AttractorFieldSection field="epsilon" :fanfics="fanfics.epsilon" />
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -32,8 +32,6 @@ const { areFanficsLoading, isFanficsLoadingError, areFanficsLoaded } =
 
 <style lang="scss" scoped>
 .main-page {
-  flex-grow: 1;
-  @extend %default-wrapper;
   &__fanfics-load-error {
     @include default-headline(36px, 36px, var(--color-text));
     @media (max-width: $tablet-l) {

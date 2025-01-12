@@ -1,4 +1,13 @@
 <template>
+  <AppModal
+    :isOpened="isPatchNotesModalOpened"
+    title="Последние обновления"
+    closeBtnText="Круто!"
+    :isClosableByClickOutside="true"
+    @closeModal="closePatchNotesModal"
+  >
+    <PatchNotes />
+  </AppModal>
   <button class="burger-btn" @click="openMenu" />
   <Teleport defer to=".global-container">
     <Transition name="fade-slide">
@@ -47,6 +56,14 @@
             <AppSwitcher v-model="isEffectSwitcherChecked" />
           </div>
           <ul class="burger-menu__nav-list">
+            <li class="burger-menu__nav-list-item">
+              <button
+                class="burger-menu__btn"
+                @click.stop="openPatchNotesModal"
+              >
+                Последние обновления
+              </button>
+            </li>
             <li v-if="userEmail" class="burger-menu__nav-list-item">
               <a class="burger-menu__link" @click.stop="onLogOutBtnClicked">
                 Выйти
@@ -76,6 +93,7 @@ import { useEffectsStore } from "@/store/effects";
 import useToast from "@/composables/useToast";
 import useFirebaseErrorMsg from "@/composables/useFirebaseErrorMsg";
 import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
+import PatchNotes from "@/components/PatchNotes.vue";
 
 const router = useRouter();
 
@@ -87,6 +105,7 @@ const { setErrorToast } = useToast();
 const { getErrorMsg } = useFirebaseErrorMsg();
 
 const isMenuOpened = ref(false);
+const isPatchNotesModalOpened = ref(false);
 
 const userEmail = computed(() => authStore.user?.email);
 const isUserImportant = computed(() => authStore.user?.isImportant);
@@ -112,6 +131,13 @@ const isLogInBtnVisible = computed(
 
 const openMenu = () => {
   isMenuOpened.value = true;
+};
+
+const openPatchNotesModal = () => {
+  isPatchNotesModalOpened.value = true;
+};
+const closePatchNotesModal = () => {
+  isPatchNotesModalOpened.value = false;
 };
 
 const closeMenu = (event: MouseEvent) => {
@@ -189,8 +215,8 @@ const onLogOutBtnClicked = async () => {
 }
 
 .burger-menu {
-  z-index: 10;
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   min-width: 100vw;
@@ -355,6 +381,9 @@ const onLogOutBtnClicked = async () => {
           .burger-menu__link {
             color: var(--color-burger-menu-link);
           }
+          .burger-menu__btn {
+            color: var(--color-burger-menu-link);
+          }
         }
         .burger-menu__link {
           @include default-text(36px, 36px, var(--color-burger-menu-text));
@@ -362,6 +391,23 @@ const onLogOutBtnClicked = async () => {
           width: 100%;
           padding: 20px;
           text-decoration: none;
+          transition: 0.3s;
+          @media (max-width: $laptop-s) {
+            font-size: 24px;
+            line-height: 24px;
+          }
+          @media (max-width: $phone-l) {
+            font-size: 20px;
+            line-height: 20px;
+          }
+        }
+        .burger-menu__btn {
+          @include default-text(36px, 36px, var(--color-burger-menu-text));
+          width: 100%;
+          padding: 20px;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
           transition: 0.3s;
           @media (max-width: $laptop-s) {
             font-size: 24px;

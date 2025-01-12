@@ -132,8 +132,6 @@ const onConfirmBtnClicked = async () => {
 
 <style lang="scss" scoped>
 .sign-up-page {
-  flex-grow: 1;
-  @extend %default-wrapper;
   display: flex;
   flex-direction: column;
   align-items: center;
