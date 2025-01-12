@@ -171,7 +171,7 @@ const onLogOutBtnClicked = async () => {
 }
 
 .burger-menu {
-  z-index: 2;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;

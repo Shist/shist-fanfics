@@ -1,5 +1,6 @@
 <template>
   <main class="fanfic-page">
+    <EffectPsychopathic v-if="isPsychopathicEffectNeeded" />
     <div class="fanfic-page__header-content-wrapper">
       <FanficHeaderSamples v-if="areFanficsLoading" />
       <h2
@@ -143,6 +144,7 @@ import { useFanficsStore } from "@/store/fanfics";
 import useFanficsLoadingState from "@/composables/useFanficsLoadingState";
 import FanficHeaderSamples from "@/components/FanficHeaderSamples.vue";
 import FanficBodySamples from "@/components/FanficBodySamples.vue";
+import EffectPsychopathic from "@/components/effects/EffectPsychopathic.vue";
 import { formatDate, getFieldLabel } from "@/utils";
 import { isAttractorField, BodyLoadingState, type IFanfic } from "@/types";
 
@@ -198,6 +200,10 @@ const isFanficBodyLoadingAccessError = computed(
 const isFanficBodyLoaded = computed(
   () => targetFanfic.value?.body.loadingState === BodyLoadingState.LOADED
 );
+
+const isPsychopathicEffectNeeded = computed(() => {
+  return targetFanfic.value?.isPsychopathic && isFanficBodyLoaded.value;
+});
 
 watch(
   targetFanfic,

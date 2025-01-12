@@ -42,7 +42,7 @@ onUnmounted(() => {
 .app-header {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 5;
   transition: opacity 0.3s ease;
   --header-opacity: 1;
   opacity: var(--header-opacity);

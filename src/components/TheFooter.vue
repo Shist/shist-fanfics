@@ -1,5 +1,5 @@
 <template>
-  <footer class="app-footer">
+  <footer class="app-footer" ref="footerRef">
     <div class="app-footer__container">
       <span class="app-footer__version">Версия 2.0.0</span>
       <div class="app-footer__git-link-wrapper">
@@ -20,11 +20,27 @@
   </footer>
 </template>
 
+<script setup lang="ts">
+import { ref, watch } from "vue";
+import { useElementBounding } from "@vueuse/core";
+import { useFooterStore } from "@/store/footer";
+
+const footerStore = useFooterStore();
+
+const footerRef = ref<HTMLElement | null>(null);
+
+const { height } = useElementBounding(footerRef);
+
+watch(height, (newHeight) => {
+  footerStore.footerHeight = newHeight;
+});
+</script>
+
 <style lang="scss" scoped>
 .app-footer {
   background-color: var(--color-footer);
   &__container {
-    padding: 40px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
