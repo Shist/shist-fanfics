@@ -1,7 +1,7 @@
 <template>
   <div class="theme-switcher">
     <span class="theme-switcher__icon theme-switcher__icon_sun" />
-    <AppSwitcher v-model="isSwitcherChecked" switherId="theme-switcher" />
+    <AppSwitcher v-model="isSwitcherChecked" />
     <span class="theme-switcher__icon theme-switcher__icon_moon" />
   </div>
 </template>

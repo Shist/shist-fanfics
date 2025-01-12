@@ -40,6 +40,12 @@
             </span>
             <ThemeSwitcher class="burger-menu__theme-switch" />
           </div>
+          <div class="burger-menu__option-wrapper">
+            <span class="burger-menu__effect-switch-label">
+              {{ switchEffectsLabel }}
+            </span>
+            <AppSwitcher v-model="isEffectSwitcherChecked" />
+          </div>
           <ul class="burger-menu__nav-list">
             <li v-if="userEmail" class="burger-menu__nav-list-item">
               <a class="burger-menu__link" @click.stop="onLogOutBtnClicked">
@@ -66,6 +72,7 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/store/auth";
 import { useThemeStore } from "@/store/theme";
+import { useEffectsStore } from "@/store/effects";
 import useToast from "@/composables/useToast";
 import useFirebaseErrorMsg from "@/composables/useFirebaseErrorMsg";
 import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
@@ -74,6 +81,7 @@ const router = useRouter();
 
 const authStore = useAuthStore();
 const themeStore = useThemeStore();
+const effectsStore = useEffectsStore();
 
 const { setErrorToast } = useToast();
 const { getErrorMsg } = useFirebaseErrorMsg();
@@ -87,6 +95,16 @@ const switchThemeLabel = computed(
   () =>
     `Включить ${themeStore.currTheme === "dark" ? "светлую" : "тёмную"} тему:`
 );
+
+const switchEffectsLabel = computed(
+  () => `В${effectsStore.areEffectsEnabled ? "ы" : ""}ключить эффекты:`
+);
+const isEffectSwitcherChecked = computed({
+  get: () => effectsStore.areEffectsEnabled,
+  set: (newValue: boolean) => {
+    effectsStore.setEffectsEnability(newValue);
+  },
+});
 
 const isLogInBtnVisible = computed(
   () => !userEmail.value && router.currentRoute.value.name !== "sign-in"
@@ -306,7 +324,8 @@ const onLogOutBtnClicked = async () => {
       flex-direction: column;
       align-items: center;
       row-gap: 5px;
-      .burger-menu__theme-switch-label {
+      .burger-menu__theme-switch-label,
+      .burger-menu__effect-switch-label {
         @include default-text(32px, 32px, var(--color-burger-menu-text));
         @media (max-width: $tablet-l) {
           font-size: 24px;

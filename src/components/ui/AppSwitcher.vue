@@ -1,9 +1,9 @@
 <template>
-  <label class="switcher" :for="switherId">
+  <label class="switcher" :for="generatedId">
     <input
       type="checkbox"
       class="switcher__input"
-      :id="switherId"
+      :id="generatedId"
       v-model="currSwitchValue"
     />
     <div class="switcher__slider" />
@@ -11,22 +11,27 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref, onMounted } from "vue";
 
 const props = defineProps<{
   modelValue: boolean;
-  switherId: string;
 }>();
 
 const emit = defineEmits<{
   "update:modelValue": [value: boolean];
 }>();
 
+const generatedId = ref("");
+
 const currSwitchValue = computed({
   get: () => props.modelValue,
   set: (value: boolean) => {
     emit("update:modelValue", value);
   },
+});
+
+onMounted(() => {
+  generatedId.value = `switcher-${Math.random().toString(36).substring(2, 15)}`;
 });
 </script>
 

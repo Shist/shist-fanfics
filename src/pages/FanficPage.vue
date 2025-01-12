@@ -141,6 +141,7 @@
 <script setup lang="ts">
 import { computed, watch, onUnmounted } from "vue";
 import { useFanficsStore } from "@/store/fanfics";
+import { useEffectsStore } from "@/store/effects";
 import useFanficsLoadingState from "@/composables/useFanficsLoadingState";
 import FanficHeaderSamples from "@/components/FanficHeaderSamples.vue";
 import FanficBodySamples from "@/components/FanficBodySamples.vue";
@@ -153,6 +154,7 @@ const props = defineProps<{
 }>();
 
 const fanficsStore = useFanficsStore();
+const effectsStore = useEffectsStore();
 
 const attractorField = props.fanficId.split("-")[0];
 
@@ -202,7 +204,11 @@ const isFanficBodyLoaded = computed(
 );
 
 const isPsychopathicEffectNeeded = computed(() => {
-  return targetFanfic.value?.isPsychopathic && isFanficBodyLoaded.value;
+  return (
+    targetFanfic.value?.isPsychopathic &&
+    isFanficBodyLoaded.value &&
+    effectsStore.areEffectsEnabled
+  );
 });
 
 watch(
