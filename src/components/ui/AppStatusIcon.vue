@@ -3,10 +3,15 @@
     <img
       v-if="isCheck"
       src="@/assets/images/check.png"
-      alt="Yes"
+      alt="Да"
       class="status-image"
     />
-    <img v-else src="@/assets/images/cross.png" alt="No" class="status-image" />
+    <img
+      v-else
+      src="@/assets/images/cross.png"
+      alt="Нет"
+      class="status-image"
+    />
   </div>
 </template>
 

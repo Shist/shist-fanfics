@@ -65,7 +65,7 @@
               href="https://discord.com/channels/@me/301721632106610688"
               target="_blank"
             >
-              <img src="@/assets/icons/discord.svg" alt="Discord" />
+              <img src="@/assets/icons/discord.svg" alt="Дискорд" />
               <span class="fanfic-page__social-label">shist</span>
             </a>
           </div>
@@ -75,7 +75,7 @@
               href="https://t.me/Shist041"
               target="_blank"
             >
-              <img src="@/assets/icons/telegram.svg" alt="Telegram" />
+              <img src="@/assets/icons/telegram.svg" alt="Телеграм" />
               <span class="fanfic-page__social-label">@Shist041</span>
             </a>
           </div>
@@ -85,7 +85,7 @@
               href="https://x.com/Shist0041"
               target="_blank"
             >
-              <img src="@/assets/icons/x-twitter.svg" alt="X Twitter" />
+              <img src="@/assets/icons/x-twitter.svg" alt="Икс (Твиттер)" />
               <span class="fanfic-page__social-label">Shist</span>
             </a>
           </div>
@@ -95,7 +95,7 @@
               href="https://vk.com/shist_degurechaff"
               target="_blank"
             >
-              <img src="@/assets/icons/vk.svg" alt="VK" />
+              <img src="@/assets/icons/vk.svg" alt="В контакте" />
               <span class="fanfic-page__social-label">Паша Жуковский</span>
             </a>
           </div>
@@ -103,7 +103,7 @@
         <img
           class="fanfic-page__access-error-img"
           src="@/assets/images/forbidden-section.png"
-          alt="Forbidden section"
+          alt="Запретная секция"
         />
       </div>
       <div

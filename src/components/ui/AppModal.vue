@@ -7,7 +7,7 @@
             <h2 class="modal__title">{{ title }}</h2>
           </header>
           <section class="modal__content">
-            <slot></slot>
+            <slot />
           </section>
           <button @click="close(true)" class="modal__ok-btn">
             {{ closeBtnText }}
@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import { watch } from "vue";
+import { useScrollbarPaddingStore } from "@/store/scrollbarPadding";
 
 const props = defineProps<{
   isOpened: boolean;
@@ -32,6 +33,8 @@ const emit = defineEmits<{
   closeModal: [];
 }>();
 
+const scrollbarPaddingStore = useScrollbarPaddingStore();
+
 const close = (isClosedByBtn: boolean) => {
   if (isClosedByBtn || props.isClosableByClickOutside) {
     emit("closeModal");
@@ -43,8 +46,10 @@ watch(
   (newValue) => {
     if (newValue) {
       document.body.style.overflow = "hidden";
+      scrollbarPaddingStore.isPaddingNeeded = true;
     } else {
       document.body.style.overflow = "auto";
+      scrollbarPaddingStore.isPaddingNeeded = false;
     }
   }
 );
@@ -124,11 +129,11 @@ watch(
       padding: 10px;
     }
     .modal__title {
-      @include default-headline(48px, 48px, var(--color-text));
+      @include default-headline(36px, 36px, var(--color-text));
       text-align: center;
       @media (max-width: $tablet-l) {
-        font-size: 34px;
-        line-height: 34px;
+        font-size: 30px;
+        line-height: 30px;
       }
       @media (max-width: $phone-l) {
         font-size: 24px;
@@ -136,11 +141,11 @@ watch(
       }
     }
     .modal__content {
-      max-height: 400px;
+      max-height: 420px;
       overflow-y: auto;
     }
     .modal__ok-btn {
-      @include default-btn(200px, var(--color-btn-text), var(--color-btn-bg));
+      @include default-btn(250px, var(--color-btn-text), var(--color-btn-bg));
       align-self: center;
     }
   }

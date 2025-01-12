@@ -68,7 +68,7 @@
         </li>
         <li class="patch_notes__patch-feature">
           Добавленая опция для просмотра последних обновлений приложения в
-          бургер-меню, а также модальное окно с этими обновлениями (если
+          бургер-меню, а также модальное окно с напоминанием об этом (если
           пользователь запускает приложение впервые)
         </li>
         <li class="patch_notes__patch-feature">
@@ -146,8 +146,6 @@
     </li>
   </ul>
 </template>
-
-<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .patch-notes {
