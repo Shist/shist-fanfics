@@ -132,6 +132,6 @@ onUnmounted(() => {
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: 50% 100%;
-  background-size: auto;
+  background-size: contain;
 }
 </style>

@@ -16,12 +16,6 @@ const imageUrl = ref(
   new URL("@/assets/images/psychopathic/blood.png", import.meta.url).href
 );
 
-const generateRandomNumber = (min: number, max: number) =>
-  Math.random() * (max - min) + min;
-
-const generateRandomIntNumber = (min: number, max: number) =>
-  Math.floor(generateRandomNumber(min, max + 1));
-
 const generateKeyframes = (animationName: string, isReversed: boolean) => {
   const keyframes = `
         @keyframes ${animationName} {
@@ -53,10 +47,9 @@ let leftSplatterStyleElement: HTMLStyleElement | null;
 let rightSplatterStyleElement: HTMLStyleElement | null;
 
 const leftSplatterStyles = computed(() => {
-  const bottomOffset =
-    footerStore.footerHeight + generateRandomIntNumber(0, 20);
+  const bottomOffset = footerStore.footerHeight;
 
-  const animationDelay = generateRandomNumber(50, 54);
+  const animationDelay = 50.5;
   const animationName = `blood-splatter-fade-${Math.random().toString(36).substring(2, 15)}`;
 
   if (leftSplatterStyleElement) {
@@ -74,10 +67,9 @@ const leftSplatterStyles = computed(() => {
 });
 
 const rightSplatterStyles = computed(() => {
-  const bottomOffset =
-    footerStore.footerHeight + generateRandomIntNumber(0, 20);
+  const bottomOffset = footerStore.footerHeight;
 
-  const animationDelay = generateRandomNumber(56, 60);
+  const animationDelay = 58;
   const animationName = `blood-splatter-fade-reverse-${Math.random().toString(36).substring(2, 15)}`;
 
   if (rightSplatterStyleElement) {
@@ -109,12 +101,12 @@ onUnmounted(() => {
 .blood-splatter {
   position: fixed;
   z-index: 2;
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  height: 70%;
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: cover;
   opacity: 0;
   &_left {
     left: 0;

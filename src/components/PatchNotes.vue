@@ -1,6 +1,23 @@
 <template>
   <ul class="patch-notes">
     <li class="patch-notes__patch-wrapper">
+      <h3 class="patch-notes__patch-version">Версия 2.0.1</h3>
+      <ol class="patch_notes__patch-features-wrapper">
+        <li class="patch_notes__patch-feature">
+          Увеличена прозрачность спрайтов по краям для эффектов 'pscyhopathic'
+          фанфиков
+        </li>
+        <li class="patch_notes__patch-feature">
+          Слегка увеличен размер спрайтов по краям для эффектов 'pscyhopathic'
+          фанфиков, а также синхронизирована частота их появления слева и справа
+        </li>
+        <li class="patch_notes__patch-feature">
+          Изменено заполнение ищображения Рими в эффектах для 'psychopathic'
+          фанфиков, чтобы оно умещалось в экран любого устройства
+        </li>
+      </ol>
+    </li>
+    <li class="patch-notes__patch-wrapper">
       <h3 class="patch-notes__patch-version">Версия 2.0.0</h3>
       <ol class="patch_notes__patch-features-wrapper">
         <li class="patch_notes__patch-feature">
