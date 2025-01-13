@@ -1,2 +1,3 @@
 # shist-fanfics
-This vue based web-application when I publish some fanfics
+
+This is vue based web-application where I publish some fanfics...
