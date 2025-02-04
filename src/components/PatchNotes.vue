@@ -1,6 +1,15 @@
 <template>
   <ul class="patch-notes">
     <li class="patch-notes__patch-wrapper">
+      <h3 class="patch-notes__patch-version">Версия 2.0.2</h3>
+      <ol class="patch_notes__patch-features-wrapper">
+        <li class="patch_notes__patch-feature">
+          Обновлена ссылка на x.com профиль Шиста в компоненте, появляющемся при
+          отсутствии доступа к запретной секции
+        </li>
+      </ol>
+    </li>
+    <li class="patch-notes__patch-wrapper">
       <h3 class="patch-notes__patch-version">Версия 2.0.1</h3>
       <ol class="patch_notes__patch-features-wrapper">
         <li class="patch_notes__patch-feature">

@@ -82,7 +82,7 @@
           <div class="fanfic-page__social-wrapper">
             <a
               class="fanfic-page__social-link"
-              href="https://x.com/Shist0041"
+              href="https://x.com/Shist041"
               target="_blank"
             >
               <img src="@/assets/icons/x-twitter.svg" alt="Икс (Твиттер)" />

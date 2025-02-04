@@ -7,7 +7,7 @@
     @closeModal="closeNewPatchModal"
   >
     <p class="new-patch-label">
-      Вышла новая версия веб-приложения для фанфиков - 2.0.1! Вы можете
+      Вышла новая версия веб-приложения для фанфиков - 2.0.2! Вы можете
       взглянуть на полный список изменений по кнопке `Последние обновления`,
       находящейся в бургер-меню. Это окно больше не будет показываться, пока не
       выйдет новый патч или пока вы не почистите кэш браузера.
@@ -37,7 +37,7 @@ import { useFanficsStore } from "@/store/fanfics";
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 
-const APP_VERSION = "2.0.1";
+const APP_VERSION = "2.0.2";
 
 const scrollbarPaddingStore = useScrollbarPaddingStore();
 
