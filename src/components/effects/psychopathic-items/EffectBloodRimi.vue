@@ -125,7 +125,7 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .blood-rimi {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   bottom: 0;
   width: 70%;
   height: 70%;

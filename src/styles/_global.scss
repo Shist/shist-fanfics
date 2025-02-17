@@ -50,6 +50,8 @@
   --sun-icon-img: url("@/assets/images/sun-white.png");
   --moon-icon-img: url("@/assets/images/moon-white.png");
 
+  --color-skeleton-bg: #aaaaaa;
+
   --color-theme-slider-dark: #2b2b2b;
   --color-theme-slider-light: #cccccc;
   --color-theme-slider-circle: #ffffff;
@@ -68,6 +70,8 @@
   --color-hero-replic: #ffffdd;
 
   --color-app-spinner: #ffffff;
+
+  --color-error: #ff4040;
 }
 
 // Class for light theme colors
@@ -103,6 +107,8 @@
 
   --sun-icon-img: url("@/assets/images/sun-black.png");
   --moon-icon-img: url("@/assets/images/moon-black.png");
+
+  --color-skeleton-bg: #888888;
 
   --color-hero-replic: #7b7b00;
 

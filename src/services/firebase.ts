@@ -23,6 +23,7 @@ import {
   BodyLoadingState,
   type IFanfic,
   type IHeroReplic,
+  type IImageData,
   type IUserFromFirebaseDatabase,
 } from "@/types";
 
@@ -126,7 +127,7 @@ async function loadFanficsOfFieldFromFirebase(attractorField: string) {
 
 async function loadFanficBodyFromFirebase(
   fanficId: string
-): Promise<(string | IHeroReplic)[]> {
+): Promise<(string | IHeroReplic | IImageData)[]> {
   const db = getFirestore();
   const fanficContentCollection = collection(
     db,
@@ -138,7 +139,11 @@ async function loadFanficBodyFromFirebase(
 
   const fanficContentDoc = fanficContentsSnapshot.docs[0];
   const fanficBody = fanficContentDoc.data();
-  const fanficParagraphs = fanficBody.paragraphs as (string | IHeroReplic)[];
+  const fanficParagraphs = fanficBody.paragraphs as (
+    | string
+    | IHeroReplic
+    | IImageData
+  )[];
 
   return fanficParagraphs;
 }

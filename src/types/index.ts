@@ -20,9 +20,23 @@ export interface IHeroReplic {
   replic: string;
 }
 
+export interface IImageData {
+  description: string;
+  url: string;
+}
+
+export function isImageData(value: any): value is IImageData {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    typeof value.description === "string" &&
+    typeof value.url === "string"
+  );
+}
+
 export interface IFanficBody {
   loadingState: BodyLoadingState;
-  paragraphs: (string | IHeroReplic)[];
+  paragraphs: (string | IHeroReplic | IImageData)[];
 }
 
 export interface IFanfic {

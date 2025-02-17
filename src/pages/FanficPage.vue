@@ -100,10 +100,10 @@
             </a>
           </div>
         </div>
-        <img
+        <AppImage
           class="fanfic-page__access-error-img"
-          src="@/assets/images/forbidden-section.png"
-          alt="Запретная секция"
+          :imgPath="ForbiddenSectionImagePath"
+          imgAlt="Запретная секция"
         />
       </div>
       <div
@@ -120,6 +120,11 @@
           >
             {{ fanficPart }}
           </p>
+          <AppImage
+            v-else-if="isImageData(fanficPart)"
+            :imgPath="fanficPart.url"
+            :imgAlt="fanficPart.description"
+          />
           <p
             v-else
             class="fanfic-page__paragraph fanfic-page__paragraph_replic"
@@ -139,7 +144,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, onUnmounted } from "vue";
+import { ref, computed, watch, onUnmounted } from "vue";
 import { useFanficsStore } from "@/store/fanfics";
 import { useEffectsStore } from "@/store/effects";
 import useFanficsLoadingState from "@/composables/useFanficsLoadingState";
@@ -147,7 +152,13 @@ import FanficHeaderSamples from "@/components/FanficHeaderSamples.vue";
 import FanficBodySamples from "@/components/FanficBodySamples.vue";
 import EffectPsychopathic from "@/components/effects/EffectPsychopathic.vue";
 import { formatDate, getFieldLabel } from "@/utils";
-import { isAttractorField, BodyLoadingState, type IFanfic } from "@/types";
+import {
+  isAttractorField,
+  BodyLoadingState,
+  type IFanfic,
+  isImageData,
+} from "@/types";
+import ForbiddenSectionImage from "@/assets/images/forbidden-section.png";
 
 const props = defineProps<{
   fanficId: string;
@@ -157,6 +168,8 @@ const fanficsStore = useFanficsStore();
 const effectsStore = useEffectsStore();
 
 const attractorField = props.fanficId.split("-")[0];
+
+const ForbiddenSectionImagePath = ref(ForbiddenSectionImage);
 
 const { areFanficsLoading, isFanficsLoadingError, areFanficsLoaded } =
   useFanficsLoadingState();

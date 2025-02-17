@@ -1,6 +1,29 @@
 <template>
   <ul class="patch-notes">
     <li class="patch-notes__patch-wrapper">
+      <h3 class="patch-notes__patch-version">Версия 2.1.0</h3>
+      <ol class="patch_notes__patch-features-wrapper">
+        <li class="patch_notes__patch-feature">
+          Написан пятый фанфик (epsilon-1)
+        </li>
+        <li class="patch_notes__patch-feature">
+          Теперь фанфики могут поддерживать картинки, которые динамически
+          подгружаются с отдельного сервера (URL картинок подтягиваются с базы
+          данных)
+        </li>
+        <li class="patch_notes__patch-feature">
+          Улучшена обработка состояний (загрузка, успех, ошибка) для всех
+          тяжеловесных картинок (картинка нового патча и картинка запретной
+          секции), а также картинок фанфиков
+        </li>
+        <li class="patch_notes__patch-feature">
+          Улучшены анимации для эффектов 'pscyhopathic' фанфиков, теперь для
+          планшетов и телефонов спрайты с кровью будут растягиваться на всю
+          доступную ширину, а также не будут перекрывать спрайт Рими
+        </li>
+      </ol>
+    </li>
+    <li class="patch-notes__patch-wrapper">
       <h3 class="patch-notes__patch-version">Версия 2.0.2</h3>
       <ol class="patch_notes__patch-features-wrapper">
         <li class="patch_notes__patch-feature">

@@ -100,7 +100,7 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .blood-splatter {
   position: fixed;
-  z-index: 2;
+  z-index: 1;
   width: 70%;
   height: 70%;
   pointer-events: none;
@@ -111,9 +111,11 @@ onUnmounted(() => {
   &_left {
     left: 0;
   }
-
   &_right {
     right: 0;
+  }
+  @media (max-width: $tablet-l) {
+    width: 100%;
   }
 }
 </style>

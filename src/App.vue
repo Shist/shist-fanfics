@@ -7,15 +7,15 @@
     @closeModal="closeNewPatchModal"
   >
     <p class="new-patch-label">
-      Вышла новая версия веб-приложения для фанфиков - 2.0.2! Вы можете
+      Вышла новая версия веб-приложения для фанфиков - 2.1.0! Вы можете
       взглянуть на полный список изменений по кнопке `Последние обновления`,
       находящейся в бургер-меню. Это окно больше не будет показываться, пока не
       выйдет новый патч или пока вы не почистите кэш браузера.
     </p>
-    <img
+    <AppImage
+      :imgPath="newPatchImagePath"
+      imgAlt="Новый патч"
       class="new-patch-modal-img"
-      src="@/assets/images/new-patch-modal-img.png"
-      alt="Новый патч"
     />
   </AppModal>
   <div class="global-container" :class="{ 'light-theme': isLightTheme }">
@@ -36,8 +36,9 @@ import { useScrollbarPaddingStore } from "@/store/scrollbarPadding";
 import { useFanficsStore } from "@/store/fanfics";
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
+import newPatchImage from "@/assets/images/new-patch-modal-img.png";
 
-const APP_VERSION = "2.0.2";
+const APP_VERSION = "2.1.0";
 
 const scrollbarPaddingStore = useScrollbarPaddingStore();
 
@@ -54,6 +55,7 @@ const isLightTheme = computed(() => themeStore.currTheme === "light");
 const fanficsStore = useFanficsStore();
 
 const isNewPatchModalOpened = ref(false);
+const newPatchImagePath = ref(newPatchImage);
 
 const closeNewPatchModal = () => {
   isNewPatchModalOpened.value = false;
