@@ -7,7 +7,7 @@
     @closeModal="closeNewPatchModal"
   >
     <p class="new-patch-label">
-      Вышла новая версия веб-приложения для фанфиков - 2.1.0! Вы можете
+      Вышла новая версия веб-приложения для фанфиков - 2.2.0! Вы можете
       взглянуть на полный список изменений по кнопке `Последние обновления`,
       находящейся в бургер-меню. Это окно больше не будет показываться, пока не
       выйдет новый патч или пока вы не почистите кэш браузера.
@@ -38,7 +38,7 @@ import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import newPatchImage from "@/assets/images/new-patch-modal-img.png";
 
-const APP_VERSION = "2.1.0";
+const APP_VERSION = "2.2.0";
 
 const scrollbarPaddingStore = useScrollbarPaddingStore();
 

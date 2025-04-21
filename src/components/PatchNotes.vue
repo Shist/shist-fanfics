@@ -1,6 +1,19 @@
 <template>
   <ul class="patch-notes">
     <li class="patch-notes__patch-wrapper">
+      <h3 class="patch-notes__patch-version">Версия 2.2.0</h3>
+      <ol class="patch_notes__patch-features-wrapper">
+        <li class="patch_notes__patch-feature">
+          Добавлен дисклеймер о случайности совпадений с реальными людьми,
+          событиями или организациями
+        </li>
+        <li class="patch_notes__patch-feature">
+          Имена некоторых персонажей были изменены во избежание каких-либо
+          недоразумений
+        </li>
+      </ol>
+    </li>
+    <li class="patch-notes__patch-wrapper">
       <h3 class="patch-notes__patch-version">Версия 2.1.0</h3>
       <ol class="patch_notes__patch-features-wrapper">
         <li class="patch_notes__patch-feature">
