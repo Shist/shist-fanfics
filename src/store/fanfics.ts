@@ -68,12 +68,13 @@ export const useFanficsStore = defineStore("fanfics", () => {
       targetFanfic.body.paragraphs = fanficParagraphs;
       targetFanfic.body.loadingState = BodyLoadingState.LOADED;
     } catch (error) {
-      targetFanfic.body.loadingState = BodyLoadingState.ERROR;
-
-      if (error instanceof FirebaseError) {
-        if (error.code === "permission-denied") {
-          targetFanfic.body.loadingState = BodyLoadingState.ACCESS_ERROR;
-        }
+      if (
+        error instanceof FirebaseError &&
+        error.code === "permission-denied"
+      ) {
+        targetFanfic.body.loadingState = BodyLoadingState.ACCESS_ERROR;
+      } else {
+        targetFanfic.body.loadingState = BodyLoadingState.ERROR;
       }
     }
   };
